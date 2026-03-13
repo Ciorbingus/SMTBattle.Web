@@ -1,7 +1,45 @@
 ﻿@page "/profile"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.EntityFrameworkCore
+@using SMTBattle.Web.Data
+@using SMTBattle.Web.Models
+@using System.Security.Claims
 
-<h3>Profile</h3>
+@attribute [Authorize]
+@inject ApplicationDbContext DbContext
+@inject AuthenticationStateProvider AuthProvider
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-body text-center">
+            <img src="@profile?.ProfileImageUrl" alt="Avatar" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; border: 3px solid #0d6efd;">
+            
+            <h2>@profile?.DisplayName</h2>
+            <p class="text-muted">@profile?.Bio</p>
+            
+            <hr />
+            
+            <div class="d-flex justify-content-center gap-3">
+                <a href="/profile/edit" class="btn btn-primary">Edit Profile</a>
+                <a href="/" class="btn btn-outline-secondary">Back to Game</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
+    private UserProfile? profile;
 
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (userId != null)
+        {
+            profile = await DbContext.Set<UserProfile>()
+                .FirstOrDefaultAsync(p => p.Id == userId);
+        }
+    }
 }

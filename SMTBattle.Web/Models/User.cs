@@ -4,12 +4,12 @@ namespace SMTBattle.Web.Models;
 
 public class User : IdentityUser
 {
-    public Profile? Profile { get; set; }
+    public UserProfile? Profile { get; set; }
     public DateTime MemberSince { get; set; }
 
     public User()
     {
-        Profile = new Profile 
+        Profile = new UserProfile 
         { 
             DisplayName = UserName,
             Bio = "None."

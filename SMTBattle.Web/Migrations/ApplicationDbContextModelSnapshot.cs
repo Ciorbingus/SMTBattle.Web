@@ -154,22 +154,6 @@ namespace SMTBattle.Web.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SMTBattle.Web.Models.Profile", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Bio")
-                        .HasColumnType("text");
-
-                    b.Property<string>("DisplayName")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Profile");
-                });
-
             modelBuilder.Entity("SMTBattle.Web.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -237,6 +221,26 @@ namespace SMTBattle.Web.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SMTBattle.Web.Models.UserProfile", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProfileImageUrl")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserProfiles");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -288,11 +292,11 @@ namespace SMTBattle.Web.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SMTBattle.Web.Models.Profile", b =>
+            modelBuilder.Entity("SMTBattle.Web.Models.UserProfile", b =>
                 {
                     b.HasOne("SMTBattle.Web.Models.User", "User")
                         .WithOne("Profile")
-                        .HasForeignKey("SMTBattle.Web.Models.Profile", "Id")
+                        .HasForeignKey("SMTBattle.Web.Models.UserProfile", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

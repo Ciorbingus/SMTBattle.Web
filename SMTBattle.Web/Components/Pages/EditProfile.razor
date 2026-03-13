@@ -1,0 +1,110 @@
+@page "/profile/edit"
+@rendermode InteractiveServer
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.EntityFrameworkCore
+@using SMTBattle.Web.Data
+@using SMTBattle.Web.Models
+@using System.Security.Claims
+
+@attribute [Authorize]
+@inject ApplicationDbContext DbContext
+@inject AuthenticationStateProvider AuthProvider
+@inject IWebHostEnvironment Environment
+@inject NavigationManager Nav
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 card p-4 shadow">
+            <h3>Edit Your Profile</h3>
+            <hr />
+
+            @if (profile != null)
+            {
+                <EditForm Model="profile" OnValidSubmit="HandleSave">
+                    <div class="mb-3">
+                        <label class="form-label">Display Name</label>
+                        <InputText @bind-Value="profile.DisplayName" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Bio</label>
+                        <InputTextArea @bind-Value="profile.Bio" class="form-control" rows="3" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Profile Image</label>
+                        @if (!string.IsNullOrEmpty(profile.ProfileImageUrl))
+                        {
+                            <div class="mb-2">
+                                <img src="@profile.ProfileImageUrl" style="width: 100px; height: 100px; object-fit: cover;"
+                                     class="rounded shadow-sm" />
+                            </div>
+                        }
+                        <InputFile OnChange="HandleFileSelected" class="form-control" accept=".jpg,.jpeg,.png" />
+                        <small class="text-muted">Max size: 2MB (JPG, PNG)</small>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                        <button type="button" class="btn btn-secondary"
+                                @onclick='() => Nav.NavigateTo("/profile")'>Cancel</button>
+                    </div>
+                </EditForm>
+            }
+            else
+            {
+                <p>Loading profile...</p>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private UserProfile? profile;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (userId != null)
+        {
+            profile = await DbContext.Set<UserProfile>().FirstOrDefaultAsync(p => p.Id == userId);
+        }
+    }
+
+    private IBrowserFile? selectedFile;
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+    }
+
+    private async Task HandleSave()
+    {
+        if (profile != null)
+        {
+            if (selectedFile != null)
+            {
+                var uploadsFolder = Path.Combine(Environment.WebRootPath, "uploads");
+                if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
+
+                var fileName = $"{profile.Id}_{Guid.NewGuid()}{Path.GetExtension(selectedFile.Name)}";
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 2);
+                using var fileStream = new FileStream(filePath, FileMode.Create);
+                await stream.CopyToAsync(fileStream);
+
+                profile.ProfileImageUrl = $"/uploads/{fileName}";
+            }
+
+            DbContext.Update(profile);
+            await DbContext.SaveChangesAsync();
+            Nav.NavigateTo("/profile");
+        }
+    }
+}
