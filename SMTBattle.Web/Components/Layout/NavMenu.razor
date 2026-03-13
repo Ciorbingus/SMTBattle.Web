@@ -1,4 +1,6 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using Microsoft.AspNetCore.Components.Authorization
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">SMTBattle.Web</a>
     </div>
@@ -9,40 +11,46 @@
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="nav flex-column">
 
-
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="profile">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Profile
-            </NavLink>
-        </div>
+        <AuthorizeView>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="profile">
+                        <span class="bi bi-person-fill" aria-hidden="true"></span> Profile
+                    </NavLink>
+                </div>
 
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="team">
+                        <span class="bi bi-person-badge-fill" aria-hidden="true"></span> Your Team
+                    </NavLink>
+                </div>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="team">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Your Team
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="history">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Battle History
-            </NavLink>
-        </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="history">
+                        <span class="bi bi-clock-history" aria-hidden="true"></span> Battle History
+                    </NavLink>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="login">
+                        <span class="bi bi-box-arrow-in-right" aria-hidden="true"></span> Login
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="rankings">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Rankings
+                <span class="bi bi-trophy-fill" aria-hidden="true"></span> Rankings
             </NavLink>
         </div>
 
-
-
     </nav>
 </div>
-

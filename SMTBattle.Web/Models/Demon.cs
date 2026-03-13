@@ -1,7 +1,7 @@
 namespace SMTBattle.Web.Models;
 
-public class Demon : Unit
+public class Demon : Troop
 {
-    public string Race { get; set; }
+    public string? Race { get; set; }
     
 }
