@@ -21,7 +21,8 @@
 }
 
 .navbar-brand[b-warkjlk46d] {
-    font-size: 1.25rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
 }
 
 .bi[b-warkjlk46d] {
@@ -47,7 +48,8 @@
 }
 
 .nav-item[b-warkjlk46d] {
-    font-size: 0.9rem;
+    font-size: 1.0rem;
+    font-family: 'Cinzel', serif;
     padding-bottom: 0.5rem;
 }
 

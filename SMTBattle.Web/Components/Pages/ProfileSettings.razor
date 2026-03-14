@@ -14,47 +14,66 @@
 @inject NavigationManager Nav
 @inject AuthenticationStateProvider AuthProvider
 
-<div class="smt-scanline" style="min-height: 100vh; padding-top: 3rem;">
+<div style="min-height: 100vh; padding-top: 5rem; padding-bottom: 3rem;">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="smt-panel shadow-lg">
-                    <div class="smt-panel-header d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0"><i class="bi bi-cpu"></i> System Settings</h3>
+            <div class="col-md-7 col-lg-6">
+                <div style="background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ffffff; padding: 2.5rem; box-shadow: 0 0 30px #000;">
+                    
+                    <div style="border-bottom: 2px solid #ffffff; margin-bottom: 2.5rem; padding-bottom: 1rem;">
+                        <h3 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 3px; font-weight: 800; margin: 0; text-transform: uppercase;">
+                            System Settings
+                        </h3>
                     </div>
 
-                    <div class="mb-5 p-3" style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--smt-neon-blue);">
-                        <h5 class="text-uppercase small fw-bold text-info">Visual Identity</h5>
-                        <p class="text-muted small">Update your digital avatar, display name, and summoner bio.</p>
-                        <button class="smt-btn smt-btn-primary w-100" @onclick='() => Nav.NavigateTo("/profile/edit")'>
-                            <i class="bi bi-pencil-square"></i> Modify Profile Data
+                    <div style="border-bottom: 2px solid #ffffff; margin-bottom: 2.5rem; padding-bottom: 1rem;">
+                        <h5 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">
+                            Visual Identity
+                        </h5>
+                        <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
+                            Update your digital avatar, display name, and summoner bio.
+                        </p>
+                        <button @onclick='() => Nav.NavigateTo("/profile/edit")'
+                            style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
+                            Modify Profile Data
                         </button>
                     </div>
 
-                    <div class="mb-5 p-3" style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--smt-border);">
-                        <h5 class="text-uppercase small fw-bold text-secondary">Account Credentials</h5>
-                        <p class="text-muted small">Manage security protocols, passwords, and account status.</p>
-                        <button class="smt-btn btn-outline-secondary w-100 border-secondary" @onclick='() => Nav.NavigateTo("/profile/account-settings")'>
-                            <i class="bi bi-shield-lock"></i> Access Security Hub
+                    <div style="border-bottom: 2px solid #ffffff; margin-bottom: 2.5rem; padding-bottom: 1rem;">
+                        <h5 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">
+                            Account Credentials
+                        </h5>
+                        <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
+                            Manage security protocols, passwords, and account status.
+                        </p>
+                        <button @onclick='() => Nav.NavigateTo("/profile/account-settings")'
+                            style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
+                            Access Security Hub
                         </button>
                     </div>
 
-                    <div class="mb-4 p-3 border border-danger-subtle" style="background: rgba(255,0,0,0.03);">
-                        <h5 class="text-uppercase small fw-bold text-danger">Terminal Session</h5>
-                        <p class="text-muted small">Terminate current encrypted connection to the server.</p>
+                    <div style="border-bottom: 2px solid #ffffff; margin-bottom: 2.5rem; padding-bottom: 1rem;">
+                        <h5 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">
+                            Terminal Session
+                        </h5>
+                        <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
+                            Terminate current encrypted connection to the server.
+                        </p>
 
                         <form action="Account/Logout" method="post">
                             <AntiforgeryToken />
                             <input type="hidden" name="ReturnUrl" value="/" />
-                            <button type="submit" class="smt-btn smt-btn-danger w-100">
-                                <i class="bi bi-box-arrow-right"></i> Terminate Session (Logout)
+                            <button type="submit" 
+                                style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
+                                Terminate Session
                             </button>
                         </form>
                     </div>
 
-                    <div class="mt-4 pt-3 border-top border-secondary text-center">
-                        <button class="btn btn-link text-info text-decoration-none small" @onclick='() => Nav.NavigateTo("/profile")'>
-                            <i class="bi bi-chevron-left"></i> Return to Summoner Profile
+                    <div style="text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); pt-3">
+                        <button @onclick='() => Nav.NavigateTo("/profile")'
+                                style="background: none; border: none; color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.8rem; cursor: pointer; text-decoration: underline; margin-top: 1.5rem;">
+                             Return to Summoner Profile
                         </button>
                     </div>
                 </div>

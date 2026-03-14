@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>h599xhjo3d</Fingerprint>
-      <Integrity>a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U=</Integrity>
+      <Fingerprint>z9qis1vokr</Fingerprint>
+      <Integrity>h4WOe3BYnItdVp1+u4Ado4Zj7iCXe8ipKnswH2/1h9Y=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\smt-theme.css'))</OriginalItemSpec>
@@ -107,24 +107,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\flynn.webp'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\joker.png'))">
-      <SourceType>Package</SourceType>
-      <SourceId>SMTBattle.Web</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/SMTBattle.Web</BasePath>
-      <RelativePath>images/heroes/joker.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>1iiq0lb1nj</Fingerprint>
-      <Integrity>17sWJSU5o/mGUdXvO7kV4/eFK5xLyV63z1O0Dd/IeO4=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\joker.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\marine.webp'))">
       <SourceType>Package</SourceType>
@@ -1134,23 +1116,59 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\js\bootstrap.min.js.map'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SMTBattle.Web.7vm4wrpq53.bundle.scp.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\smt-background.png'))">
       <SourceType>Package</SourceType>
       <SourceId>SMTBattle.Web</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/SMTBattle.Web</BasePath>
-      <RelativePath>SMTBattle.Web.7vm4wrpq53.bundle.scp.css</RelativePath>
+      <RelativePath>smt-background.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>jjew2r5yvh</Fingerprint>
+      <Integrity>YZAzHpTv4pvsq1CtMgtvXllfb45zACu52rj28bi+4xw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\smt-background.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\smt-background2.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SMTBattle.Web</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SMTBattle.Web</BasePath>
+      <RelativePath>smt-background2.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7f9bd6vo98</Fingerprint>
+      <Integrity>jQZpvxMWEO2yuVG9EjPCyPRoYha/54lhQe1XHCV+QhY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\smt-background2.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SMTBattle.Web.aastvfvp5l.bundle.scp.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SMTBattle.Web</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SMTBattle.Web</BasePath>
+      <RelativePath>SMTBattle.Web.aastvfvp5l.bundle.scp.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>Reference</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ProjectBundle</AssetTraitValue>
-      <Fingerprint>7vm4wrpq53</Fingerprint>
-      <Integrity>PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=</Integrity>
+      <Fingerprint>aastvfvp5l</Fingerprint>
+      <Integrity>joDgfpgIeOqieYkg1KTp93/yxL8IDN5GFuAh0p1VeKQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SMTBattle.Web.7vm4wrpq53.bundle.scp.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SMTBattle.Web.aastvfvp5l.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SMTicon.png'))">
       <SourceType>Package</SourceType>
@@ -1223,6 +1241,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\711078cd-93ab-418b-b6c1-e033ca135bcd_639090949556055226.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a2c987ab-6449-4c37-80da-70bbeb87c8af_bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SMTBattle.Web</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SMTBattle.Web</BasePath>
+      <RelativePath>uploads/a2c987ab-6449-4c37-80da-70bbeb87c8af_bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>8vai1t1qoe</Fingerprint>
+      <Integrity>fDOzHzfMJgueShIoylYbxF+n6ALP1UiFrz/RZlDjlOA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a2c987ab-6449-4c37-80da-70bbeb87c8af_bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png'))">
       <SourceType>Package</SourceType>

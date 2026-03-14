@@ -4,47 +4,60 @@
 @using SMTBattle.Web.Services
 @inject UserPresenceService PresenceService
 
-<PageTitle>SMTBattle.Web</PageTitle>
+<PageTitle>SMTBattle | Amala Network</PageTitle>
 
-<div class="smt-scanline" style="min-height: 100vh; padding-top: 5rem; padding-bottom: 3rem;">
+<div style="min-height: 100vh; padding-top: 5rem; padding-bottom: 3rem;">
     <div class="container">
         <div class="row g-4">
             
             <div class="col-md-9">
                 <div class="smt-panel p-5 h-100">
-                    <h1>Welcome to SMT Battle!</h1>
-                    <p>Conquer the Apocalypse.</p>
+                    <h1 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 5px; font-weight: 800; text-transform: uppercase;">
+                        Welcome to SMT Battle!
+                    </h1>
+                    <hr style="border-color: #ffffff; opacity: 0.3;" />
+                    <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 1.5rem; font-style: italic;">
+                        "Conquer the Apocalypse."
+                    </p>
                 </div>
             </div>
 
             <div class="col-md-3">
-                <div class="smt-panel p-3 h-100" style="border-left: 1px solid rgba(0, 255, 255, 0.2);">
-                    <h6 class="smt-panel-header text-uppercase opacity-75 small mb-3">
-                        <i class="bi bi-broadcast"></i> Network
+                <div class="smt-panel p-3 h-100">
+                    <h6 style="color: #ffffff; font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; margin-bottom: 20px;">
+                         Network
                     </h6>
                     
                     <div class="mb-4">
-                        <label class="text-muted" style="font-size: 0.7rem;">ONLINE_SUMMONERS</label>
-                        <div class="h2 text-info fw-bold mb-0" style="font-family: 'Courier New', Courier, monospace;">
+                        <label style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.75rem; display: block; opacity: 0.7;">
+                            > ACTIVE_SUMMONERS
+                        </label>
+                        <div style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: bold; text-shadow: 0 0 10px rgba(255,255,255,0.3);">
                             @activeUsersCount.ToString("D3")
                         </div>
                     </div>
 
-                    <label class="text-muted" style="font-size: 0.7rem;">ACTIVE_SUMMONERS</label>
+                    <label style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.75rem; display: block; opacity: 0.7; margin-bottom: 10px;">
+                        > SOUL_MANIFESTATIONS
+                    </label>
+                    
                     <div class="smt-scroll-container" style="max-height: 400px; overflow-y: auto;">
                         @if (onlineUsernames.Any())
                         {
                             @foreach (var name in onlineUsernames)
                             {
-                                <a href="/profile/@name" class="d-flex justify-content-between align-items-center p-2 mb-1 text-decoration-none border-bottom border-secondary border-opacity-10 smt-user-link">
-                                    <span class="text-info small fw-bold">@name.ToUpper()</span>
-                                    <i class="bi bi-chevron-right text-muted small"></i>
+                                <a href="/profile/@name" class="d-flex justify-content-between align-items-center p-2 mb-2 text-decoration-none smt-btn-primary" 
+                                   style="border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;">
+                                    <span style="font-family: 'Cinzel', serif; font-size: 0.9rem;">@name.ToUpper()</span>
+                                    <span style="font-size: 0.7rem;">▶</span>
                                 </a>
                             }
                         }
                         else
                         {
-                            <div class="small text-muted italic p-2">Scanning...</div>
+                            <div style="color: #ffffff; font-style: italic; opacity: 0.5; padding: 10px;">
+                                Scanning Vortex...
+                            </div>
                         }
                     </div>
                 </div>

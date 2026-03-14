@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/projectbundle/SMTBattle.Web.bundle.scp.css",
-      "PackagePath": "staticwebassets/SMTBattle.Web.7vm4wrpq53.bundle.scp.css"
+      "PackagePath": "staticwebassets/SMTBattle.Web.aastvfvp5l.bundle.scp.css"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/SMTicon.png",
@@ -31,10 +31,6 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/flynn.webp",
       "PackagePath": "staticwebassets/images/heroes/flynn.webp"
-    },
-    {
-      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/joker.png",
-      "PackagePath": "staticwebassets/images/heroes/joker.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/marine.webp",
@@ -261,6 +257,14 @@
       "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
     },
     {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/smt-background.png",
+      "PackagePath": "staticwebassets/smt-background.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/smt-background2.png",
+      "PackagePath": "staticwebassets/smt-background2.png"
+    },
+    {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
       "PackagePath": "staticwebassets/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png"
     },
@@ -271,6 +275,10 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090949556055226.jpg",
       "PackagePath": "staticwebassets/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090949556055226.jpg"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/a2c987ab-6449-4c37-80da-70bbeb87c8af_bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",
+      "PackagePath": "staticwebassets/uploads/a2c987ab-6449-4c37-80da-70bbeb87c8af_bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",

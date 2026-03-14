@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SMTBattle.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3042f0ab3dc52cecfe152445aa40904fc45d33eb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a0ee9d7690d06e2bb750fa53f7765a0f650244b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SMTBattle.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SMTBattle.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,70 +12,84 @@
 @attribute [Authorize]
 @inject AuthenticationStateProvider AuthProvider
 @inject NavigationManager Nav
-
 @inject IProfileService ProfileService
 
-<div class="smt-scanline" style="min-height: 100vh; padding-top: 2rem;">
+<PageTitle>SMTBattle | Profile @(profile?.DisplayName ?? "Loading")</PageTitle>
+
+<div style="min-height: 100vh; padding-top: 5rem; padding-bottom: 3rem;">
     <div class="container">
         @if (profile == null)
         {
-            <div class="smt-panel text-center">
-                <div class="spinner-border text-info" role="status"></div>
-                <p class="mt-3 text-info">SYNCHRONIZING WITH SERVER...</p>
+            <div style="background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ffffff; padding: 3rem; text-align: center;">
+                <p style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 3px; font-weight: bold;">
+                    > SYNCHRONIZING_WITH_AMALA_NETWORK...
+                </p>
             </div>
         }
         else
         {
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="smt-panel text-center h-100">
-                        <div class="mb-3">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div style="background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ffffff; padding: 2rem; text-align: center; height: 100%;">
+                        <div style="margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.3); padding: 5px; display: inline-block;">
                             <img src="@(string.IsNullOrEmpty(profile.ProfileImageUrl) ? "/images/default-avatar.jpg" : profile.ProfileImageUrl)" 
                                  alt="Avatar" 
-                                 class="smt-cut-corner shadow-lg" 
-                                 style="width: 200px; height: 200px; object-fit: cover; border: 2px solid var(--smt-neon-blue);">
+                                 style="width: 200px; height: 200px; object-fit: cover; border: 1px solid #ffffff;">
                         </div>
                         
-                        <h2 class="smt-panel-header">@profile.DisplayName</h2>
-                        <p class="text-info small mb-4">STATUS: ONLINE / SUMMONER_ID: @(profile.User?.UserName?.ToUpper() ?? "UNKNOWN")</p>
+                        <h2 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 2px; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">
+                            @profile.DisplayName
+                        </h2>
+                        <p style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.7rem; opacity: 0.7; margin-bottom: 1.5rem;">
+                            STATUS: ONLINE / ID: @(profile.User?.UserName?.ToUpper() ?? "UNKNOWN")
+                        </p>
                         
-                        <div class="text-start p-3" style="background: rgba(0,0,0,0.3); border: 1px solid var(--smt-border);">
-                            <label class="text-muted small d-block">SUMMONER_BIO</label>
-                            <p class="mb-0 small">@(string.IsNullOrEmpty(profile.Bio) ? "No digital signature found..." : profile.Bio)</p>
+                        <div style="text-align: left; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);">
+                            <label style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.7rem; display: block; font-weight: bold; margin-bottom: 5px;">
+                                > SUMMONER_BIO
+                            </label>
+                            <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 0.95rem; line-height: 1.4; margin: 0; font-style: italic;">
+                                @(string.IsNullOrEmpty(profile.Bio) ? "No digital signature found..." : profile.Bio)
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-8 mb-4">
-                    <div class="smt-panel h-100">
-                        <h4 class="smt-panel-header">System Commands</h4>
+                <div class="col-md-8">
+                    <div style="background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ffffff; padding: 2rem; height: 100%;">
+                        <h4 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 2px; border-bottom: 1px solid #ffffff; padding-bottom: 10px; margin-bottom: 1.5rem; text-transform: uppercase;">
+                            System Commands
+                        </h4>
                         
                         <div class="d-flex flex-wrap gap-3 mb-5">
                             @if (isOwnProfile)
                             {
-                                <button class="smt-btn smt-btn-primary" @onclick='() => Nav.NavigateTo("/profile/settings")'>
-                                    <i class="bi bi-gear-fill"></i> System Settings
+                                <button @onclick='() => Nav.NavigateTo("/profile/settings")'
+                                    style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
+                                    Adjust Settings
                                 </button>
                             }
                             else
                             {
-                                <button class="smt-btn smt-btn-danger px-5">
-                                    <i class="bi bi-zap-charge"></i> INITIATE DUEL
+                                <button style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
+                                    Initiate Duel
                                 </button>
                             }
-                            <button class="smt-btn btn-outline-secondary" @onclick='() => Nav.NavigateTo("/")'>
-                                EXIT TO HUB
+                            <button @onclick='() => Nav.NavigateTo("/")'
+                                    style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
+                                Exit to Hub
                             </button>
                         </div>
 
-                        <h4 class="smt-panel-header" style="border-color: var(--smt-border); color: var(--smt-text-muted);">
+                        <h4 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; opacity: 0.6; text-transform: uppercase;">
                             Active Demon Team
                         </h4>
                         
-                        <div class="row mt-3">
-                            <div class="col-12 text-center p-5 border border-dashed border-secondary">
-                                <i class="bi bi-cpu text-muted" style="font-size: 2rem;"></i>
-                                <p class="text-muted mt-2">No active demons detected in COMP memory.</p>
+                        <div class="row mt-4">
+                            <div class="col-12 text-center" style="padding: 3rem; border: 1px dashed rgba(255,255,255,0.2);">
+                                <p style="color: #ffffff; font-family: 'Cinzel', serif; font-style: italic; opacity: 0.5;">
+                                    [ No active demons detected in COMP memory ]
+                                </p>
                             </div>
                         </div>
                     </div>
