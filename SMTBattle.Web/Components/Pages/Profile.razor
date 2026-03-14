@@ -1,4 +1,6 @@
 ﻿@page "/profile"
+@page "/profile/{username}"
+@rendermode InteractiveServer
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.EntityFrameworkCore
@@ -9,37 +11,108 @@
 @attribute [Authorize]
 @inject ApplicationDbContext DbContext
 @inject AuthenticationStateProvider AuthProvider
+@inject NavigationManager Nav
 
-<div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-body text-center">
-            <img src="@profile?.ProfileImageUrl" alt="Avatar" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; border: 3px solid #0d6efd;">
-            
-            <h2>@profile?.DisplayName</h2>
-            <p class="text-muted">@profile?.Bio</p>
-            
-            <hr />
-            
-            <div class="d-flex justify-content-center gap-3">
-                <a href="/profile/edit" class="btn btn-primary">Edit Profile</a>
-                <a href="/" class="btn btn-outline-secondary">Back to Game</a>
+<div class="smt-scanline" style="min-height: 100vh; padding-top: 2rem;">
+    <div class="container">
+        @if (profile == null)
+        {
+            <div class="smt-panel text-center">
+                <div class="spinner-border text-info" role="status"></div>
+                <p class="mt-3 text-info">SYNCHRONIZING WITH SERVER...</p>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="smt-panel text-center h-100">
+                        <div class="mb-3">
+                            <img src="@(string.IsNullOrEmpty(profile.ProfileImageUrl) ? "/images/default-avatar.jpg" : profile.ProfileImageUrl)" 
+                                 alt="Avatar" 
+                                 class="smt-cut-corner shadow-lg" 
+                                 style="width: 200px; height: 200px; object-fit: cover; border: 2px solid var(--smt-neon-blue);">
+                        </div>
+                        
+                        <h2 class="smt-panel-header">@profile.DisplayName</h2>
+                        <p class="text-info small mb-4">STATUS: ONLINE / TAMER_ID: @(profile.User?.UserName?.ToUpper() ?? "UNKNOWN")</p>
+                        
+                        <div class="text-start p-3" style="background: rgba(0,0,0,0.3); border: 1px solid var(--smt-border);">
+                            <label class="text-muted small d-block">SUMMONER_BIO</label>
+                            <p class="mb-0 small">@(string.IsNullOrEmpty(profile.Bio) ? "No digital signature found..." : profile.Bio)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 mb-4">
+                    <div class="smt-panel h-100">
+                        <h4 class="smt-panel-header">System Commands</h4>
+                        
+                        <div class="d-flex flex-wrap gap-3 mb-5">
+                            @if (isOwnProfile)
+                            {
+                                <button class="smt-btn smt-btn-primary" @onclick='() => Nav.NavigateTo("/profile/settings")'>
+                                    <i class="bi bi-gear-fill"></i> System Settings
+                                </button>
+                                <button class="smt-btn smt-btn-primary" @onclick='() => Nav.NavigateTo("/profile/edit")'>
+                                    <i class="bi bi-pencil-square"></i> Modify Data
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="smt-btn smt-btn-danger px-5">
+                                    <i class="bi bi-zap-charge"></i> INITIATE DUEL
+                                </button>
+                            }
+                            <button class="smt-btn btn-outline-secondary" @onclick='() => Nav.NavigateTo("/")'>
+                                EXIT TO HUB
+                            </button>
+                        </div>
+
+                        <h4 class="smt-panel-header" style="border-color: var(--smt-border); color: var(--smt-text-muted);">
+                            Active Demon Team
+                        </h4>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12 text-center p-5 border border-dashed border-secondary">
+                                <i class="bi bi-cpu text-muted" style="font-size: 2rem;"></i>
+                                <p class="text-muted mt-2">No active demons detected in COMP memory.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
 
 @code {
+    [Parameter] public string? Username { get; set; }
+    
     private UserProfile? profile;
+    private bool isOwnProfile;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         var authState = await AuthProvider.GetAuthenticationStateAsync();
-        var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUserId = authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUserName = authState.User.Identity?.Name;
 
-        if (userId != null)
+        profile = null;
+
+        if (string.IsNullOrEmpty(Username) || Username.Equals(currentUserName, StringComparison.OrdinalIgnoreCase))
         {
+            isOwnProfile = true;
             profile = await DbContext.Set<UserProfile>()
-                .FirstOrDefaultAsync(p => p.Id == userId);
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(p => p.Id == currentUserId);
+        }
+        else
+        {
+            isOwnProfile = false;
+            profile = await DbContext.Set<UserProfile>()
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(p => p.User.UserName == Username);
         }
     }
 }

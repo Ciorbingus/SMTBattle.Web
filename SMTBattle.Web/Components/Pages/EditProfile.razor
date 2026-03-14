@@ -8,6 +8,7 @@
 @using SMTBattle.Web.Data
 @using SMTBattle.Web.Models
 @using System.Security.Claims
+@using System.IO
 
 @attribute [Authorize]
 @inject ApplicationDbContext DbContext
@@ -15,55 +16,75 @@
 @inject IWebHostEnvironment Environment
 @inject NavigationManager Nav
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 card p-4 shadow">
-            <h3>Edit Your Profile</h3>
-            <hr />
+<div class="smt-scanline" style="min-height: 100vh; padding: 3rem 0;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="smt-panel shadow-lg">
+                    <h2 class="smt-panel-header"><i class="bi bi-pencil-square"></i> Data Recalibration</h2>
+                    <p class="text-info small mb-4 opacity-75">Modify your digital signature and avatar in the COMP database.</p>
 
-            @if (profile != null)
-            {
-                <EditForm Model="profile" OnValidSubmit="HandleSave">
-                    <div class="mb-3">
-                        <label class="form-label">Display Name</label>
-                        <InputText @bind-Value="profile.DisplayName" class="form-control" />
-                    </div>
+                    @if (profile != null)
+                    {
+                        <EditForm Model="profile" OnValidSubmit="HandleSave">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="alert alert-danger bg-transparent text-danger border-danger small" />
 
-                    <div class="mb-3">
-                        <label class="form-label">Bio</label>
-                        <InputTextArea @bind-Value="profile.Bio" class="form-control" rows="3" />
-                    </div>
+                            <div class="row g-4">
+                                @* Coloana Stângă: Imagine *@
+                                <div class="col-md-4 text-center border-end border-secondary">
+                                    <label class="text-info small fw-bold mb-3 d-block">AVATAR_UPLOAD</label>
+                                    <div class="mb-4 position-relative d-inline-block">
+                                        <img src="@(string.IsNullOrEmpty(profile.ProfileImageUrl) ? "/images/default-avatar.jpg" : profile.ProfileImageUrl)" 
+                                             alt="Avatar" 
+                                             class="smt-cut-corner" 
+                                             style="width: 140px; height: 140px; object-fit: cover; border: 2px solid var(--smt-neon-blue);" />
+                                    </div>
+                                    <div class="mb-3 px-2">
+                                        <InputFile OnChange="HandleFileSelected" class="form-control smt-input form-control-sm" accept=".jpg,.jpeg,.png" />
+                                        <small class="text-muted d-block mt-2" style="font-size: 0.7rem;">SYSTEM LIMIT: 2MB (JPG/PNG)</small>
+                                    </div>
+                                </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Profile Image</label>
-                        @if (!string.IsNullOrEmpty(profile.ProfileImageUrl))
-                        {
-                            <div class="mb-2">
-                                <img src="@profile.ProfileImageUrl" style="width: 100px; height: 100px; object-fit: cover;"
-                                     class="rounded shadow-sm" />
+                                <div class="col-md-8">
+                                    <div class="mb-4">
+                                        <label class="text-info small fw-bold mb-2 d-block">SUMMONER_NAME</label>
+                                        <InputText @bind-Value="profile.DisplayName" class="form-control smt-input" placeholder="Enter display name..." />
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="text-info small fw-bold mb-2 d-block">DIGITAL_BIO</label>
+                                        <InputTextArea @bind-Value="profile.Bio" class="form-control smt-input" rows="5" placeholder="Transmission log..." />
+                                    </div>
+
+                                    <div class="d-flex gap-3 justify-content-end mt-5">
+                                        <button type="button" class="smt-btn btn-outline-secondary text-white" @onclick='() => Nav.NavigateTo("/profile/settings")'>
+                                            ABORT
+                                        </button>
+                                        <button type="submit" class="smt-btn smt-btn-primary px-4">
+                                            COMMIT_CHANGES
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        }
-                        <InputFile OnChange="HandleFileSelected" class="form-control" accept=".jpg,.jpeg,.png" />
-                        <small class="text-muted">Max size: 2MB (JPG, PNG)</small>
-                    </div>
-
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-success">Save Changes</button>
-                        <button type="button" class="btn btn-secondary"
-                                @onclick='() => Nav.NavigateTo("/profile")'>Cancel</button>
-                    </div>
-                </EditForm>
-            }
-            else
-            {
-                <p>Loading profile...</p>
-            }
+                        </EditForm>
+                    }
+                    else
+                    {
+                        <div class="text-center p-5">
+                            <div class="spinner-border text-info" role="status"></div>
+                            <p class="mt-3 text-info animate-pulse">ACCESSING ENCRYPTED DATA...</p>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 @code {
     private UserProfile? profile;
+    private IBrowserFile? selectedFile;
 
     protected override async Task OnInitializedAsync()
     {
@@ -72,13 +93,19 @@
 
         if (userId != null)
         {
-            profile = await DbContext.Set<UserProfile>().FirstOrDefaultAsync(p => p.Id == userId);
+            profile = await DbContext.Set<UserProfile>()
+                .FirstOrDefaultAsync(p => p.Id == userId);
+
+            if (profile == null)
+            {
+                profile = new UserProfile { Id = userId };
+                DbContext.Add(profile);
+                await DbContext.SaveChangesAsync();
+            }
         }
     }
 
-    private IBrowserFile? selectedFile;
-
-    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    private void HandleFileSelected(InputFileChangeEventArgs e)
     {
         selectedFile = e.File;
     }
@@ -87,24 +114,32 @@
     {
         if (profile != null)
         {
-            if (selectedFile != null)
+            try 
             {
-                var uploadsFolder = Path.Combine(Environment.WebRootPath, "uploads");
-                if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
+                if (selectedFile != null)
+                {
+                    var uploadsFolder = Path.Combine(Environment.WebRootPath, "uploads");
+                    if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
 
-                var fileName = $"{profile.Id}_{Guid.NewGuid()}{Path.GetExtension(selectedFile.Name)}";
-                var filePath = Path.Combine(uploadsFolder, fileName);
+                    var extension = Path.GetExtension(selectedFile.Name);
+                    var fileName = $"{profile.Id}_{DateTime.Now.Ticks}{extension}";
+                    var filePath = Path.Combine(uploadsFolder, fileName);
 
-                using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 2);
-                using var fileStream = new FileStream(filePath, FileMode.Create);
-                await stream.CopyToAsync(fileStream);
+                    using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 2);
+                    using var fileStream = new FileStream(filePath, FileMode.Create);
+                    await stream.CopyToAsync(fileStream);
 
-                profile.ProfileImageUrl = $"/uploads/{fileName}";
+                    profile.ProfileImageUrl = $"/uploads/{fileName}";
+                }
+
+                DbContext.Update(profile);
+                await DbContext.SaveChangesAsync();
+                Nav.NavigateTo("/profile");
             }
-
-            DbContext.Update(profile);
-            await DbContext.SaveChangesAsync();
-            Nav.NavigateTo("/profile");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving profile: {ex.Message}");
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/projectbundle/SMTBattle.Web.bundle.scp.css",
-      "PackagePath": "staticwebassets/SMTBattle.Web.3zd43pv9x2.bundle.scp.css"
+      "PackagePath": "staticwebassets/SMTBattle.Web.7vm4wrpq53.bundle.scp.css"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/SMTicon.png",
@@ -13,8 +13,8 @@
       "PackagePath": "staticwebassets/app.css"
     },
     {
-      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/favicon.png",
-      "PackagePath": "staticwebassets/favicon.png"
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/css/smt-theme.css",
+      "PackagePath": "staticwebassets/css/smt-theme.css"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/default-avatar.jpg",
@@ -195,6 +195,10 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
       "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",
+      "PackagePath": "staticwebassets/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_a530bd75-0ce3-40e8-b81d-4aafeba7902c.png",

@@ -1,0 +1,69 @@
+@page "/profile/settings"
+@rendermode InteractiveServer
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.EntityFrameworkCore
+@using SMTBattle.Web.Models
+@using System.Security.Claims
+
+@attribute [Authorize]
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Nav
+@inject AuthenticationStateProvider AuthProvider
+
+<div class="smt-scanline" style="min-height: 100vh; padding-top: 3rem;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="smt-panel shadow-lg">
+                    <div class="smt-panel-header d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0"><i class="bi bi-cpu"></i> System Settings</h3>
+                        <span class="badge border border-info text-info small">SECURED_LINK</span>
+                    </div>
+
+                    <div class="mb-5 p-3" style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--smt-neon-blue);">
+                        <h5 class="text-uppercase small fw-bold text-info">Visual Identity</h5>
+                        <p class="text-muted small">Update your digital avatar, display name, and summoner bio.</p>
+                        <button class="smt-btn smt-btn-primary w-100" @onclick='() => Nav.NavigateTo("/profile/edit")'>
+                            <i class="bi bi-pencil-square"></i> Modify Profile Data
+                        </button>
+                    </div>
+
+                    <div class="mb-5 p-3" style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--smt-border);">
+                        <h5 class="text-uppercase small fw-bold text-secondary">Account Credentials</h5>
+                        <p class="text-muted small">Manage security protocols, passwords, and account status.</p>
+                        <button class="smt-btn btn-outline-secondary w-100 text-white border-secondary" @onclick='() => Nav.NavigateTo("/profile/account-settings")'>
+                            <i class="bi bi-shield-lock"></i> Access Security Hub
+                        </button>
+                    </div>
+
+                    <div class="mb-4 p-3 border border-danger-subtle" style="background: rgba(255,0,0,0.03);">
+                        <h5 class="text-uppercase small fw-bold text-danger">Terminal Session</h5>
+                        <p class="text-muted small">Terminate current encrypted connection to the server.</p>
+
+                        <form action="Account/Logout" method="post">
+                            <AntiforgeryToken />
+                            <input type="hidden" name="ReturnUrl" value="/" />
+                            <button type="submit" class="smt-btn smt-btn-danger w-100">
+                                <i class="bi bi-box-arrow-right"></i> Terminate Session (Logout)
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-top border-secondary text-center">
+                        <button class="btn btn-link text-info text-decoration-none small" @onclick='() => Nav.NavigateTo("/profile")'>
+                            <i class="bi bi-chevron-left"></i> Return to Summoner Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+}

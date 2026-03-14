@@ -62,8 +62,6 @@
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/ih0fpi7mbe-h1s4sie4z3.gz
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/t7uklpmku3-63fj8s7r0e.gz
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/mk1ioc8wa7-0j3bgjxly4.gz
-/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-3zd43pv9x2.gz
-/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-3zd43pv9x2.gz
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/staticwebassets.build.json
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/staticwebassets.development.json
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/staticwebassets.build.endpoints.json
@@ -182,3 +180,6 @@
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/SMTBattle.Web.csproj.AssemblyReference.cache
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/SMTBattl.688FF13D.Up2Date
+/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-7vm4wrpq53.gz
+/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-7vm4wrpq53.gz
+/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zeoo04cj3n-h599xhjo3d.gz

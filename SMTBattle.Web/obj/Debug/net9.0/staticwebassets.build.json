@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wvAis1S7RvLU4DmBvGwwu7cMri/WM/jHMCuaSHEA9xA=",
+  "Hash": "ZNs05MU+VJhjqXMUQmXxzp1MWD3fF4gRklOBfduIjLA=",
   "Source": "SMTBattle.Web",
   "BasePath": "_content/SMTBattle.Web",
   "Mode": "Default",
@@ -248,12 +248,12 @@
       "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-3zd43pv9x2.gz",
+      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-7vm4wrpq53.gz",
       "SourceId": "SMTBattle.Web",
       "SourceType": "Computed",
       "ContentRoot": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/SMTBattle.Web",
-      "RelativePath": "SMTBattle.Web#[.{fingerprint=3zd43pv9x2}]?.styles.css.gz",
+      "RelativePath": "SMTBattle.Web#[.{fingerprint=7vm4wrpq53}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -262,8 +262,8 @@
       "RelatedAsset": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/bundle/SMTBattle.Web.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "r0a24fwb1g",
-      "Integrity": "xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=",
+      "Fingerprint": "03zuklx7i4",
+      "Integrity": "HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/bundle/SMTBattle.Web.styles.css"
@@ -416,12 +416,12 @@
       "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
     },
     {
-      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-3zd43pv9x2.gz",
+      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-7vm4wrpq53.gz",
       "SourceId": "SMTBattle.Web",
       "SourceType": "Computed",
       "ContentRoot": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/SMTBattle.Web",
-      "RelativePath": "SMTBattle.Web#[.{fingerprint=3zd43pv9x2}]!.bundle.scp.css.gz",
+      "RelativePath": "SMTBattle.Web#[.{fingerprint=7vm4wrpq53}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -430,8 +430,8 @@
       "RelatedAsset": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/projectbundle/SMTBattle.Web.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "r0a24fwb1g",
-      "Integrity": "xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=",
+      "Fingerprint": "03zuklx7i4",
+      "Integrity": "HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/projectbundle/SMTBattle.Web.bundle.scp.css"
@@ -983,6 +983,27 @@
       "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css"
     },
     {
+      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zeoo04cj3n-h599xhjo3d.gz",
+      "SourceId": "SMTBattle.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/SMTBattle.Web",
+      "RelativePath": "css/smt-theme#[.{fingerprint=h599xhjo3d}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/css/smt-theme.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "272wqqvxp2",
+      "Integrity": "4vovnyQh6ISTSvX4H4fF+xYndccWdfuTLCXah6SfHZ4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/css/smt-theme.css"
+    },
+    {
       "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zumrl9f24f-nvvlpmu67g.gz",
       "SourceId": "SMTBattle.Web",
       "SourceType": "Discovered",
@@ -1018,8 +1039,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "3zd43pv9x2",
-      "Integrity": "vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=",
+      "Fingerprint": "7vm4wrpq53",
+      "Integrity": "PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/bundle/SMTBattle.Web.styles.css"
@@ -1039,8 +1060,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "3zd43pv9x2",
-      "Integrity": "vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=",
+      "Fingerprint": "7vm4wrpq53",
+      "Integrity": "PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/projectbundle/SMTBattle.Web.bundle.scp.css"
@@ -1067,12 +1088,12 @@
       "OriginalItemSpec": "wwwroot/app.css"
     },
     {
-      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/favicon.png",
+      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/css/smt-theme.css",
       "SourceId": "SMTBattle.Web",
       "SourceType": "Discovered",
       "ContentRoot": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/",
       "BasePath": "_content/SMTBattle.Web",
-      "RelativePath": "favicon#[.{fingerprint}]?.png",
+      "RelativePath": "css/smt-theme#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1081,11 +1102,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ifv42okdf2",
-      "Integrity": "4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
+      "Fingerprint": "h599xhjo3d",
+      "Integrity": "a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/favicon.png"
+      "OriginalItemSpec": "wwwroot/css/smt-theme.css"
     },
     {
       "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/default-avatar.jpg",
@@ -2054,6 +2075,27 @@
       "OriginalItemSpec": "wwwroot/SMTicon.png"
     },
     {
+      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",
+      "SourceId": "SMTBattle.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/",
+      "BasePath": "_content/SMTBattle.Web",
+      "RelativePath": "uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8vai1t1qoe",
+      "Integrity": "fDOzHzfMJgueShIoylYbxF+n6ALP1UiFrz/RZlDjlOA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png"
+    },
+    {
       "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_a530bd75-0ce3-40e8-b81d-4aafeba7902c.png",
       "SourceId": "SMTBattle.Web",
       "SourceType": "Discovered",
@@ -2375,8 +2417,63 @@
       ]
     },
     {
-      "Route": "favicon.ifv42okdf2.png",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/favicon.png",
+      "Route": "css/smt-theme.css",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zeoo04cj3n-h599xhjo3d.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001312335958"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "761"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4vovnyQh6ISTSvX4H4fF+xYndccWdfuTLCXah6SfHZ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 10:07:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U="
+        }
+      ]
+    },
+    {
+      "Route": "css/smt-theme.css",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/css/smt-theme.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2385,19 +2482,164 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1148"
+          "Value": "2167"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/png"
+          "Value": "text/css"
         },
         {
           "Name": "ETag",
-          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+          "Value": "\"a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:47:30 GMT"
+          "Value": "Sat, 14 Mar 2026 10:07:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U="
+        }
+      ]
+    },
+    {
+      "Route": "css/smt-theme.css.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zeoo04cj3n-h599xhjo3d.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "761"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4vovnyQh6ISTSvX4H4fF+xYndccWdfuTLCXah6SfHZ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 10:07:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4vovnyQh6ISTSvX4H4fF+xYndccWdfuTLCXah6SfHZ4="
+        }
+      ]
+    },
+    {
+      "Route": "css/smt-theme.h599xhjo3d.css",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zeoo04cj3n-h599xhjo3d.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001312335958"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "761"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4vovnyQh6ISTSvX4H4fF+xYndccWdfuTLCXah6SfHZ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 10:07:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h599xhjo3d"
+        },
+        {
+          "Name": "label",
+          "Value": "css/smt-theme.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U="
+        }
+      ]
+    },
+    {
+      "Route": "css/smt-theme.h599xhjo3d.css",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/css/smt-theme.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2167"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 10:07:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2407,21 +2649,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ifv42okdf2"
+          "Value": "h599xhjo3d"
         },
         {
           "Name": "label",
-          "Value": "favicon.png"
+          "Value": "css/smt-theme.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+          "Value": "sha256-a5Sb29CUXvjWqzgXoID0+q+GHHPAGX+InJwNr/KtR2U="
         }
       ]
     },
     {
-      "Route": "favicon.png",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/favicon.png",
+      "Route": "css/smt-theme.h599xhjo3d.css.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zeoo04cj3n-h599xhjo3d.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2430,29 +2672,45 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1148"
+          "Value": "761"
         },
         {
           "Name": "Content-Type",
-          "Value": "image/png"
+          "Value": "text/css"
         },
         {
           "Name": "ETag",
-          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+          "Value": "\"4vovnyQh6ISTSvX4H4fF+xYndccWdfuTLCXah6SfHZ4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:47:30 GMT"
+          "Value": "Sat, 14 Mar 2026 10:07:42 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "h599xhjo3d"
+        },
+        {
+          "Name": "label",
+          "Value": "css/smt-theme.css.gz"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+          "Value": "sha256-4vovnyQh6ISTSvX4H4fF+xYndccWdfuTLCXah6SfHZ4="
         }
       ]
     },
@@ -15651,13 +15909,13 @@
       ]
     },
     {
-      "Route": "SMTBattle.Web.3zd43pv9x2.bundle.scp.css",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-3zd43pv9x2.gz",
+      "Route": "SMTBattle.Web.7vm4wrpq53.bundle.scp.css",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-7vm4wrpq53.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000569476082"
+          "Quality": "0.000571428571"
         }
       ],
       "ResponseHeaders": [
@@ -15667,15 +15925,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15695,13 +15953,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "W/\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zd43pv9x2"
+          "Value": "7vm4wrpq53"
         },
         {
           "Name": "label",
@@ -15709,12 +15967,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
     {
-      "Route": "SMTBattle.Web.3zd43pv9x2.bundle.scp.css",
+      "Route": "SMTBattle.Web.7vm4wrpq53.bundle.scp.css",
       "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/projectbundle/SMTBattle.Web.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -15724,7 +15982,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5768"
+          "Value": "5766"
         },
         {
           "Name": "Content-Type",
@@ -15732,11 +15990,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15746,7 +16004,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zd43pv9x2"
+          "Value": "7vm4wrpq53"
         },
         {
           "Name": "label",
@@ -15754,13 +16012,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
     {
-      "Route": "SMTBattle.Web.3zd43pv9x2.bundle.scp.css.gz",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-3zd43pv9x2.gz",
+      "Route": "SMTBattle.Web.7vm4wrpq53.bundle.scp.css.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-7vm4wrpq53.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15769,7 +16027,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "Content-Type",
@@ -15777,11 +16035,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15799,7 +16057,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zd43pv9x2"
+          "Value": "7vm4wrpq53"
         },
         {
           "Name": "label",
@@ -15807,18 +16065,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4="
+          "Value": "sha256-HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00="
         }
       ]
     },
     {
-      "Route": "SMTBattle.Web.3zd43pv9x2.styles.css",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-3zd43pv9x2.gz",
+      "Route": "SMTBattle.Web.7vm4wrpq53.styles.css",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-7vm4wrpq53.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000569476082"
+          "Quality": "0.000571428571"
         }
       ],
       "ResponseHeaders": [
@@ -15828,15 +16086,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15856,13 +16114,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "W/\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zd43pv9x2"
+          "Value": "7vm4wrpq53"
         },
         {
           "Name": "label",
@@ -15870,12 +16128,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
     {
-      "Route": "SMTBattle.Web.3zd43pv9x2.styles.css",
+      "Route": "SMTBattle.Web.7vm4wrpq53.styles.css",
       "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/scopedcss/bundle/SMTBattle.Web.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -15885,7 +16143,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5768"
+          "Value": "5766"
         },
         {
           "Name": "Content-Type",
@@ -15893,11 +16151,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15907,7 +16165,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zd43pv9x2"
+          "Value": "7vm4wrpq53"
         },
         {
           "Name": "label",
@@ -15915,13 +16173,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
     {
-      "Route": "SMTBattle.Web.3zd43pv9x2.styles.css.gz",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-3zd43pv9x2.gz",
+      "Route": "SMTBattle.Web.7vm4wrpq53.styles.css.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-7vm4wrpq53.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15930,7 +16188,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "Content-Type",
@@ -15938,11 +16196,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15960,7 +16218,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zd43pv9x2"
+          "Value": "7vm4wrpq53"
         },
         {
           "Name": "label",
@@ -15968,18 +16226,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4="
+          "Value": "sha256-HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00="
         }
       ]
     },
     {
       "Route": "SMTBattle.Web.bundle.scp.css",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-3zd43pv9x2.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-7vm4wrpq53.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000569476082"
+          "Quality": "0.000571428571"
         }
       ],
       "ResponseHeaders": [
@@ -15989,15 +16247,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16017,13 +16275,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "W/\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
@@ -16038,7 +16296,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5768"
+          "Value": "5766"
         },
         {
           "Name": "Content-Type",
@@ -16046,11 +16304,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16060,13 +16318,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
     {
       "Route": "SMTBattle.Web.bundle.scp.css.gz",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-3zd43pv9x2.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-7vm4wrpq53.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -16075,7 +16333,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "Content-Type",
@@ -16083,11 +16341,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16105,18 +16363,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4="
+          "Value": "sha256-HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00="
         }
       ]
     },
     {
       "Route": "SMTBattle.Web.styles.css",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-3zd43pv9x2.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-7vm4wrpq53.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000569476082"
+          "Quality": "0.000571428571"
         }
       ],
       "ResponseHeaders": [
@@ -16126,15 +16384,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16154,13 +16412,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "W/\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
@@ -16175,7 +16433,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5768"
+          "Value": "5766"
         },
         {
           "Name": "Content-Type",
@@ -16183,11 +16441,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw=\""
+          "Value": "\"PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16197,13 +16455,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vzYmQXJnyCYHqIbLtPkeZfuEpRzI77+YtkamgDLwbZw="
+          "Value": "sha256-PTft5aZt+xGBUobdZ9Q0sq2eRHW9XItYVQv2TmdRm5w="
         }
       ]
     },
     {
       "Route": "SMTBattle.Web.styles.css.gz",
-      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-3zd43pv9x2.gz",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-7vm4wrpq53.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -16212,7 +16470,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1755"
+          "Value": "1749"
         },
         {
           "Name": "Content-Type",
@@ -16220,11 +16478,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4=\""
+          "Value": "\"HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Mar 2026 14:48:19 GMT"
+          "Value": "Sat, 14 Mar 2026 06:24:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16242,7 +16500,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xYC4Lrpt+XPmPYnPmQZvJnrTrevOGtC1lfLqhb0lXU4="
+          "Value": "sha256-HOVckS2qYFZmXB26T9rfcrqb1cmcSct9xnCvMDLhn00="
         }
       ]
     },
@@ -16325,6 +16583,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-J9JTKOmRXKyu0aEU6ykuH8rPpV/LNIxPJK64dsftdB4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.8vai1t1qoe.png",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19164"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fDOzHzfMJgueShIoylYbxF+n6ALP1UiFrz/RZlDjlOA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 08:36:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8vai1t1qoe"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fDOzHzfMJgueShIoylYbxF+n6ALP1UiFrz/RZlDjlOA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19164"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fDOzHzfMJgueShIoylYbxF+n6ALP1UiFrz/RZlDjlOA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 08:36:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fDOzHzfMJgueShIoylYbxF+n6ALP1UiFrz/RZlDjlOA="
         }
       ]
     },
