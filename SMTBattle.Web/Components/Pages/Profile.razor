@@ -37,7 +37,7 @@
                         </div>
                         
                         <h2 class="smt-panel-header">@profile.DisplayName</h2>
-                        <p class="text-info small mb-4">STATUS: ONLINE / TAMER_ID: @(profile.User?.UserName?.ToUpper() ?? "UNKNOWN")</p>
+                        <p class="text-info small mb-4">STATUS: ONLINE / SUMMONER_ID: @(profile.User?.UserName?.ToUpper() ?? "UNKNOWN")</p>
                         
                         <div class="text-start p-3" style="background: rgba(0,0,0,0.3); border: 1px solid var(--smt-border);">
                             <label class="text-muted small d-block">SUMMONER_BIO</label>
@@ -55,9 +55,6 @@
                             {
                                 <button class="smt-btn smt-btn-primary" @onclick='() => Nav.NavigateTo("/profile/settings")'>
                                     <i class="bi bi-gear-fill"></i> System Settings
-                                </button>
-                                <button class="smt-btn smt-btn-primary" @onclick='() => Nav.NavigateTo("/profile/edit")'>
-                                    <i class="bi bi-pencil-square"></i> Modify Data
                                 </button>
                             }
                             else

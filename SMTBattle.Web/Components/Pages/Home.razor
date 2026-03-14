@@ -1,7 +1,86 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@implements IDisposable
+@using SMTBattle.Web.Services
+@inject UserPresenceService PresenceService
 
-<PageTitle>Home</PageTitle>
+<PageTitle>SMTBattle.Web</PageTitle>
 
-<h1>Welcome to SMT Battle!</h1>
+<div class="smt-scanline" style="min-height: 100vh; padding-top: 5rem; padding-bottom: 3rem;">
+    <div class="container">
+        <div class="row g-4">
+            
+            <div class="col-md-9">
+                <div class="smt-panel p-5 h-100">
+                    <h1>Welcome to SMT Battle!</h1>
+                    <p>Conquer the Apocalypse.</p>
+                </div>
+            </div>
 
-Conquer the Apocalypse.
+            <div class="col-md-3">
+                <div class="smt-panel p-3 h-100" style="border-left: 1px solid rgba(0, 255, 255, 0.2);">
+                    <h6 class="smt-panel-header text-uppercase opacity-75 small mb-3">
+                        <i class="bi bi-broadcast"></i> Network
+                    </h6>
+                    
+                    <div class="mb-4">
+                        <label class="text-muted" style="font-size: 0.7rem;">ONLINE_SUMMONERS</label>
+                        <div class="h2 text-info fw-bold mb-0" style="font-family: 'Courier New', Courier, monospace;">
+                            @activeUsersCount.ToString("D3")
+                        </div>
+                    </div>
+
+                    <label class="text-muted" style="font-size: 0.7rem;">ACTIVE_SUMMONERS</label>
+                    <div class="smt-scroll-container" style="max-height: 400px; overflow-y: auto;">
+                        @if (onlineUsernames.Any())
+                        {
+                            @foreach (var name in onlineUsernames)
+                            {
+                                <a href="/profile/@name" class="d-flex justify-content-between align-items-center p-2 mb-1 text-decoration-none border-bottom border-secondary border-opacity-10 smt-user-link">
+                                    <span class="text-info small fw-bold">@name.ToUpper()</span>
+                                    <i class="bi bi-chevron-right text-muted small"></i>
+                                </a>
+                            }
+                        }
+                        else
+                        {
+                            <div class="small text-muted italic p-2">Scanning...</div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@code {
+    private int activeUsersCount;
+    private List<string> onlineUsernames = new();
+
+    protected override void OnInitialized()
+    {
+        UpdateLocalState();
+        PresenceService.OnPresenceChanged += RefreshPresence;
+    }
+
+    private void UpdateLocalState()
+    {
+        activeUsersCount = PresenceService.GetActiveUsersCount();
+        onlineUsernames = PresenceService.GetOnlineUsernames();
+    }
+
+    private void RefreshPresence()
+    {
+        InvokeAsync(() =>
+        {
+            UpdateLocalState();
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        PresenceService.OnPresenceChanged -= RefreshPresence;
+    }
+}

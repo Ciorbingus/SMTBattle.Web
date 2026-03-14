@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc; 
 using System.Security.Claims;
 using SMTBattle.Web.Services;
+using Microsoft.AspNetCore.Components.Server.Circuits;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,9 @@ builder.Services.AddIdentityCore<User>(options => {
 
 // Application Services
 builder.Services.AddScoped<IProfileService, ProfileService>();
+
+builder.Services.AddSingleton<UserPresenceService>();
+builder.Services.AddScoped<CircuitHandler, PresenceCircuitHandler>();
 
 var app = builder.Build();
 

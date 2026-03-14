@@ -261,6 +261,10 @@
       "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
     },
     {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
+      "PackagePath": "staticwebassets/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png"
+    },
+    {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.webp",
       "PackagePath": "staticwebassets/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.webp"
     },

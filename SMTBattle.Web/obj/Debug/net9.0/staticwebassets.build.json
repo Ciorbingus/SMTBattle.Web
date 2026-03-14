@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VaU3uMfFryCO2dyFJT8HCOS4KyYCjouXqIJ28iYymQA=",
+  "Hash": "Ml4pvGbYrCaAZbEZp5+ILS/h+GE4rY37770MxuNQrys=",
   "Source": "SMTBattle.Web",
   "BasePath": "_content/SMTBattle.Web",
   "Mode": "Default",
@@ -2409,6 +2409,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/SMTicon.png"
+    },
+    {
+      "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
+      "SourceId": "SMTBattle.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/",
+      "BasePath": "_content/SMTBattle.Web",
+      "RelativePath": "uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "l67td062l3",
+      "Integrity": "YynWcilhxFCpz1qGN308R+IfJn5rt2+oriK41gqvbe4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png"
     },
     {
       "Identity": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.webp",
@@ -18273,6 +18294,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-J9JTKOmRXKyu0aEU6ykuH8rPpV/LNIxPJK64dsftdB4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.l67td062l3.png",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "703350"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YynWcilhxFCpz1qGN308R+IfJn5rt2+oriK41gqvbe4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 14:21:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l67td062l3"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YynWcilhxFCpz1qGN308R+IfJn5rt2+oriK41gqvbe4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
+      "AssetFile": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "703350"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YynWcilhxFCpz1qGN308R+IfJn5rt2+oriK41gqvbe4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Mar 2026 14:21:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YynWcilhxFCpz1qGN308R+IfJn5rt2+oriK41gqvbe4="
         }
       ]
     },
