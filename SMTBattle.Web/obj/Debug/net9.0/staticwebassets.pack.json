@@ -21,6 +21,70 @@
       "PackagePath": "staticwebassets/images/default-avatar.jpg"
     },
     {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/alpeh.webp",
+      "PackagePath": "staticwebassets/images/heroes/alpeh.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/demifiend.webp",
+      "PackagePath": "staticwebassets/images/heroes/demifiend.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/flynn.webp",
+      "PackagePath": "staticwebassets/images/heroes/flynn.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/joker.png",
+      "PackagePath": "staticwebassets/images/heroes/joker.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/marine.webp",
+      "PackagePath": "staticwebassets/images/heroes/marine.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/ame.png",
+      "PackagePath": "staticwebassets/images/sprites/ame.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/arahabaki.webp",
+      "PackagePath": "staticwebassets/images/sprites/arahabaki.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/decarabia.webp",
+      "PackagePath": "staticwebassets/images/sprites/decarabia.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/forneus.webp",
+      "PackagePath": "staticwebassets/images/sprites/forneus.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/matador.webp",
+      "PackagePath": "staticwebassets/images/sprites/matador.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/mothman.webp",
+      "PackagePath": "staticwebassets/images/sprites/mothman.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/oni.png",
+      "PackagePath": "staticwebassets/images/sprites/oni.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/ose.webp",
+      "PackagePath": "staticwebassets/images/sprites/ose.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/paimon.webp",
+      "PackagePath": "staticwebassets/images/sprites/paimon.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/principality.webp",
+      "PackagePath": "staticwebassets/images/sprites/principality.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/sarasvati.webp",
+      "PackagePath": "staticwebassets/images/sprites/sarasvati.webp"
+    },
+    {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
       "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
     },
@@ -195,6 +259,14 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
       "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.webp",
+      "PackagePath": "staticwebassets/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090949556055226.jpg",
+      "PackagePath": "staticwebassets/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090949556055226.jpg"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/bf6c666f-2ff8-460d-89a0-54e94abaa925_639090814193167480.png",

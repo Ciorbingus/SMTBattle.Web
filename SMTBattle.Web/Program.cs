@@ -5,18 +5,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc; 
 using System.Security.Claims;
+using SMTBattle.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// UI Services
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-
+// Database 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+// Identity and Authentication
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddAuthentication(options =>
     {
@@ -24,12 +26,6 @@ builder.Services.AddAuthentication(options =>
         options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
     })
     .AddIdentityCookies();
-
-builder.Services.AddIdentityCore<User>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddSignInManager()
-    .AddDefaultTokenProviders();
-
 
 builder.Services.AddIdentityCore<User>(options => {
     options.Password.RequireDigit = false;
@@ -42,29 +38,27 @@ builder.Services.AddIdentityCore<User>(options => {
 .AddSignInManager()
 .AddDefaultTokenProviders();
 
+
+// Application Services
+builder.Services.AddScoped<IProfileService, ProfileService>();
+
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
+// Pipeline configuration
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-
 app.UseHttpsRedirection();
-
-
 app.UseAntiforgery();
-
 app.MapStaticAssets();
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-
-//Logout endpoint
+// Logout endpoint
 app.MapPost("Account/Logout", async (
     SignInManager<User> signInManager,
     [FromForm] string returnUrl) =>
@@ -73,22 +67,20 @@ app.MapPost("Account/Logout", async (
     return Results.LocalRedirect(returnUrl ?? "/");
 });
 
-//Delete account endpoint
+// Delete Account endpoint
 app.MapPost("Account/Delete", async (
     SignInManager<User> signInManager, 
     UserManager<User> userManager,
-    ApplicationDbContext dbContext,
+    IProfileService profileService, 
     ClaimsPrincipal userPrincipal) =>
 {
     var user = await userManager.GetUserAsync(userPrincipal);
     if (user != null)
     {
-        var profile = await dbContext.Set<UserProfile>().FindAsync(user.Id);
-        if (profile != null) dbContext.Remove(profile);
-        await dbContext.SaveChangesAsync();
-
-        await userManager.DeleteAsync(user);
+    
+        var profile = await profileService.GetProfileByIdAsync(user.Id);
         
+        await userManager.DeleteAsync(user);
         await signInManager.SignOutAsync();
     }
     return Results.LocalRedirect("/");

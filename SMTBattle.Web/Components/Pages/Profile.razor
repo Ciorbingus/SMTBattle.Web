@@ -1,17 +1,19 @@
 ﻿@page "/profile"
 @page "/profile/{username}"
 @rendermode InteractiveServer
+
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.EntityFrameworkCore
-@using SMTBattle.Web.Data
 @using SMTBattle.Web.Models
 @using System.Security.Claims
+@using SMTBattle.Web.Services
 
 @attribute [Authorize]
-@inject ApplicationDbContext DbContext
 @inject AuthenticationStateProvider AuthProvider
 @inject NavigationManager Nav
+
+@inject IProfileService ProfileService
 
 <div class="smt-scanline" style="min-height: 100vh; padding-top: 2rem;">
     <div class="container">
@@ -103,16 +105,15 @@
         if (string.IsNullOrEmpty(Username) || Username.Equals(currentUserName, StringComparison.OrdinalIgnoreCase))
         {
             isOwnProfile = true;
-            profile = await DbContext.Set<UserProfile>()
-                .Include(p => p.User)
-                .FirstOrDefaultAsync(p => p.Id == currentUserId);
+            if (!string.IsNullOrEmpty(currentUserId))
+            {
+                profile = await ProfileService.GetProfileByIdAsync(currentUserId);
+            }
         }
         else
         {
             isOwnProfile = false;
-            profile = await DbContext.Set<UserProfile>()
-                .Include(p => p.User)
-                .FirstOrDefaultAsync(p => p.User.UserName == Username);
+            profile = await ProfileService.GetProfileByUsernameAsync(Username);
         }
     }
 }

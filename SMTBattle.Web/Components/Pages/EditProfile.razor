@@ -4,16 +4,13 @@
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Identity
-@using Microsoft.EntityFrameworkCore
-@using SMTBattle.Web.Data
 @using SMTBattle.Web.Models
+@using SMTBattle.Web.Services
 @using System.Security.Claims
-@using System.IO
 
 @attribute [Authorize]
-@inject ApplicationDbContext DbContext
+@inject IProfileService ProfileService
 @inject AuthenticationStateProvider AuthProvider
-@inject IWebHostEnvironment Environment
 @inject NavigationManager Nav
 
 <div class="smt-scanline" style="min-height: 100vh; padding: 3rem 0;">
@@ -31,7 +28,6 @@
                             <ValidationSummary class="alert alert-danger bg-transparent text-danger border-danger small" />
 
                             <div class="row g-4">
-                                @* Coloana Stângă: Imagine *@
                                 <div class="col-md-4 text-center border-end border-secondary">
                                     <label class="text-info small fw-bold mb-3 d-block">AVATAR_UPLOAD</label>
                                     <div class="mb-4 position-relative d-inline-block">
@@ -93,22 +89,17 @@
 
         if (userId != null)
         {
-            profile = await DbContext.Set<UserProfile>()
-                .FirstOrDefaultAsync(p => p.Id == userId);
+            profile = await ProfileService.GetProfileByIdAsync(userId);
 
             if (profile == null)
             {
-                profile = new UserProfile { Id = userId };
-                DbContext.Add(profile);
-                await DbContext.SaveChangesAsync();
+                profile = new UserProfile { Id = userId, DisplayName = authState.User.Identity?.Name ?? "New Tamer" };
+                await ProfileService.UpdateProfileAsync(profile);
             }
         }
     }
 
-    private void HandleFileSelected(InputFileChangeEventArgs e)
-    {
-        selectedFile = e.File;
-    }
+    private void HandleFileSelected(InputFileChangeEventArgs e) => selectedFile = e.File;
 
     private async Task HandleSave()
     {
@@ -118,27 +109,16 @@
             {
                 if (selectedFile != null)
                 {
-                    var uploadsFolder = Path.Combine(Environment.WebRootPath, "uploads");
-                    if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
-
-                    var extension = Path.GetExtension(selectedFile.Name);
-                    var fileName = $"{profile.Id}_{DateTime.Now.Ticks}{extension}";
-                    var filePath = Path.Combine(uploadsFolder, fileName);
-
                     using var stream = selectedFile.OpenReadStream(maxAllowedSize: 1024 * 1024 * 2);
-                    using var fileStream = new FileStream(filePath, FileMode.Create);
-                    await stream.CopyToAsync(fileStream);
-
-                    profile.ProfileImageUrl = $"/uploads/{fileName}";
+                    profile.ProfileImageUrl = await ProfileService.SaveAvatarAsync(profile.Id, stream, selectedFile.Name);
                 }
 
-                DbContext.Update(profile);
-                await DbContext.SaveChangesAsync();
+                await ProfileService.UpdateProfileAsync(profile);
                 Nav.NavigateTo("/profile");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error saving profile: {ex.Message}");
+                Console.WriteLine($"Error recalibrating profile: {ex.Message}");
             }
         }
     }
