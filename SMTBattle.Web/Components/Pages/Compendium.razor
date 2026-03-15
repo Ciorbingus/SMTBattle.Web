@@ -1,0 +1,217 @@
+@page "/compendium"
+@rendermode InteractiveServer
+@using SMTBattle.Web.Models
+@using SMTBattle.Web.Enums
+@inject AdminCompendiumService AdminService
+@inject NavigationManager NavManager
+
+<div style="min-height: 100vh; padding: 5rem 0; color: white; background-color: #050505;">
+    <div class="container">
+        
+        <div style="background: rgba(0,0,0,0.95); border: 2px solid #ffffff; padding: 2.5rem; box-shadow: 0 0 30px #000; margin-bottom: 3rem;">
+            <h2 style="font-family: 'Cinzel', serif; border-bottom: 2px solid white; padding-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; color: #fff;">
+                COMPENDIUM_FORGE 
+            </h2>
+
+            <EditForm Model="newDemon" OnValidSubmit="HandleSave">
+                <DataAnnotationsValidator />
+                
+                <div class="row mt-4">
+                    <div class="col-md-4 text-center" style="border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px;">
+                        <label style="color: white; font-family: 'Cinzel'; display: block; margin-bottom: 10px;">> IMAGE_MANIFESTATION</label>
+                        <div style="margin-bottom: 1.5rem; border: 1px solid white; padding: 5px; display: inline-block; background: #111;">
+                            <img src="@previewUrl" alt="Preview" style="width: 220px; height: 220px; object-fit: contain;" />
+                        </div>
+                        <div class="px-2">
+                            <InputFile OnChange="HandleFileSelected" class="form-control bg-black text-white border-white rounded-0" accept=".jpg,.jpeg,.png,.webp" />
+                            <p style="font-size: 0.6rem; color: #666; margin-top: 5px;">SUPPORTED: JPG, PNG, WEBP (MAX 2MB)</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="row g-3">
+                            <div class="col-md-5">
+                                <label style="font-family: 'Cinzel';">> NAME</label>
+                                <InputText @bind-Value="newDemon.Name" class="form-control bg-black text-white border-white rounded-0" placeholder="DEMON_NAME..." />
+                            </div>
+                            <div class="col-md-3">
+                                <label style="font-family: 'Cinzel';">> RACE</label>
+                                <InputSelect @bind-Value="newDemon.Race" class="form-control bg-black text-white border-white rounded-0">
+                                    @foreach (var r in Enum.GetValues<Race>()) { <option value="@r">@r</option> }
+                                </InputSelect>
+                            </div>
+                            <div class="col-md-4">
+                                <label style="font-family: 'Cinzel';">> ALIGNMENT</label>
+                                <InputSelect @bind-Value="newDemon.Allignment" class="form-control bg-black text-white border-white rounded-0">
+                                    @foreach (var a in Enum.GetValues<Allignment>()) { <option value="@a">@a</option> }
+                                </InputSelect>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label style="color: #00ffff;">> LVL</label>
+                                <div class="form-control bg-black text-info border-info rounded-0 text-center font-weight-bold">35</div>
+                            </div>
+                            <div class="col-md-2"><label>> STR</label><InputNumber @bind-Value="newDemon.Strength" class="form-control bg-black text-white border-white rounded-0" /></div>
+                            <div class="col-md-2"><label>> MAG</label><InputNumber @bind-Value="newDemon.Magic" class="form-control bg-black text-white border-white rounded-0" /></div>
+                            <div class="col-md-2"><label>> VIT</label><InputNumber @bind-Value="newDemon.Vitality" class="form-control bg-black text-white border-white rounded-0" /></div>
+                            <div class="col-md-2"><label>> AGI</label><InputNumber @bind-Value="newDemon.Agility" class="form-control bg-black text-white border-white rounded-0" /></div>
+                            <div class="col-md-2"><label>> LUK</label><InputNumber @bind-Value="newDemon.Luck" class="form-control bg-black text-white border-white rounded-0" /></div>
+
+                            <div class="col-12 mt-4">
+                                <h5 style="font-family: 'Cinzel'; border-bottom: 1px solid #333; padding-bottom: 5px;">SKILL_MANIFESTATION (5 CORE / 3 CUSTOM)</h5>
+                                <div class="row g-2 mt-1">
+                                    @for (int i = 0; i < 8; i++)
+                                    {
+                                        int index = i;
+                                        bool isPlayerSlot = index >= 5;
+                                        <div class="col-md-3">
+                                            <label style="font-size: 0.6rem; color: @(isPlayerSlot ? "#ff00ff" : "#aaa");">
+                                                @(isPlayerSlot ? $"SLOT {index + 1} [PLAYER]" : $"SLOT {index + 1} [ADMIN]")
+                                            </label>
+                                            <select class="form-control bg-black text-white border-white rounded-0 shadow-none"
+                                                    @bind="newDemon.Skills[index]"
+                                                    disabled="@isPlayerSlot"
+                                                    style="font-size: 0.75rem; border: @(isPlayerSlot ? "1px dashed #ff00ff" : "1px solid white"); opacity: @(isPlayerSlot ? "0.4" : "1");">
+                                                @if (isPlayerSlot)
+                                                {
+                                                    <option value="@SkillName.None">-- RESERVED --</option>
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var s in Enum.GetValues<SkillName>()) { <option value="@s">@s</option> }
+                                                }
+                                            </select>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <h5 style="font-family: 'Cinzel'; border-bottom: 1px solid #333; padding-bottom: 5px;">ELEMENTAL_RESISTANCES</h5>
+                                <div class="d-flex flex-wrap gap-2 mt-2">
+                                    @foreach (var element in Enum.GetValues<Elements>())
+                                    {
+                                        <div style="width: 105px;">
+                                            <label style="font-size: 0.65rem; display: block; color: #999;">> @element.ToString().ToUpper()</label>
+                                            <input type="number" 
+                                                   value="@newDemon.Resistances[element]" 
+                                                   @onchange="@((ChangeEventArgs e) => newDemon.Resistances[element] = int.TryParse(e.Value?.ToString(), out var val) ? val : 0)"
+                                                   class="form-control bg-black text-white border-white rounded-0" 
+                                                   style="font-size: 0.85rem;" />
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <h5 style="font-family: 'Cinzel'; border-bottom: 1px solid #333; padding-bottom: 5px; color: #f0ad4e;">
+                                    > DEMON_LORE_ENTRY
+                                </h5>
+                                <div style="border: 1px solid #444; padding: 10px; background: rgba(255,255,255,0.02);">
+                                <InputTextArea @bind-Value="newDemon.Description" 
+                                    class="form-control bg-black text-white border-0 rounded-0 shadow-none" 
+                                    style="min-height: 120px; font-size: 0.9rem; font-family: 'Consolas', monospace; resize: vertical;"
+                                    placeholder="Enter mythological data or demon history..." />
+                                </div>
+                                <small style="color: #666; font-style: italic;">SYSTEM_NOTE: This data will be displayed in the individual entry view.</small>  
+                            </div>
+
+                            <div class="col-12 mt-5">
+                                <button type="submit" style="background: white; color: black; font-weight: bold; width: 100%; padding: 18px; font-family: 'Cinzel'; border: none; text-transform: uppercase; letter-spacing: 4px; transition: 0.3s;">
+                                    EXECUTE_SERIALIZATION
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.95); border: 2px solid #ffffff; padding: 2rem; box-shadow: 0 0 20px #000;">
+            <h3 style="font-family: 'Cinzel', serif; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; margin-bottom: 20px; letter-spacing: 2px;">
+                DATABASE_ENTRIES
+            </h3>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover" style="font-family: 'Cinzel', serif; font-size: 0.8rem; border-collapse: separate; border-spacing: 0 5px;">
+                    <thead>
+                        <tr style="color: #aaa; text-transform: uppercase; font-size: 0.7rem;">
+                            <th>Image</th>
+                            <th>Identity</th>
+                            <th>Race/Align</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var d in savedDemons)
+                        {
+                            <tr @onclick="() => ViewDemon(d.Id)" 
+                                    style="background: rgba(255,255,255,0.05); vertical-align: middle; cursor: pointer; transition: 0.2s;"
+                                    class="demon-row-hover">                                 
+                                <td style="width: 60px;"><img src="@d.ProfileImageUrl" style="width: 50px; height: 50px; object-fit: contain; border: 1px solid white;" /></td>
+                                <td><span style="font-size: 1rem; font-weight: bold; color: #fff;">@d.Name.ToUpper()</span></td>
+                                <td>@d.Race<br/><small style="opacity: 0.6;">@d.Allignment</small></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .demon-row-hover:hover {
+        background: rgba(255,255,255,0.15) !important;
+        border-left: 4px solid #00ffff;
+    }
+</style>
+
+@code {
+    private Demon newDemon = new();
+    private List<Demon> savedDemons = new();
+    private bool showSuccess = false;
+    private IBrowserFile? selectedFile;
+    private string previewUrl = "/images/demons/dummy.png";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSavedDemons();
+    }
+
+    private async Task LoadSavedDemons()
+    {
+        savedDemons = await AdminService.GetFullCompendium();
+    }
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+        var resizedFile = await e.File.RequestImageFileAsync(e.File.ContentType, 300, 300);
+        using var stream = resizedFile.OpenReadStream(2048000);
+        using var memoryStream = new MemoryStream();
+        await stream.CopyToAsync(memoryStream);
+        previewUrl = $"data:{e.File.ContentType};base64,{Convert.ToBase64String(memoryStream.ToArray())}";
+    }
+
+    private async Task HandleSave()
+    {
+        newDemon.Level = 35;
+
+        if (selectedFile != null)
+            newDemon.ProfileImageUrl = await AdminService.UploadDemonImage(selectedFile, newDemon.Name);
+
+        newDemon.MaxHP = newDemon.HP = (newDemon.Vitality + newDemon.Level) * 6;
+        newDemon.MaxMP = newDemon.MP = (newDemon.Magic + newDemon.Level)* 3;
+
+        await AdminService.SaveToCompendium(newDemon);
+    
+        newDemon = new Demon { Level = 35 }; 
+        previewUrl = "/images/demons/dummy.png";
+        await LoadSavedDemons();
+        StateHasChanged();
+    }
+
+    private void ViewDemon(string id)
+    {
+        NavManager.NavigateTo($"/compendium/{id}");
+    }
+}

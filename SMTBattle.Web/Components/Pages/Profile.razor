@@ -13,6 +13,7 @@
 @inject AuthenticationStateProvider AuthProvider
 @inject NavigationManager Nav
 @inject IProfileService ProfileService
+@inject UserPresenceService PresenceService
 
 <PageTitle>SMTBattle | Profile @(profile?.DisplayName ?? "Loading")</PageTitle>
 
@@ -40,8 +41,11 @@
                         <h2 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 2px; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">
                             @profile.DisplayName
                         </h2>
-                        <p style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.7rem; opacity: 0.7; margin-bottom: 1.5rem;">
-                            STATUS: ONLINE / ID: @(profile.User?.UserName?.ToUpper() ?? "UNKNOWN")
+                        <p style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: bold; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                            SUMMONER_ID: @(profile.User?.UserName?.ToUpper() ?? "UNKNOWN")
+                        </p>
+                        <p style="color: @(isOnline ? "#00ff00" : "#aaaaaa"); font-family: 'Cinzel', serif; font-size: 0.7rem; font-weight: bold; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                            STATUS: @(isOnline ? "ONLINE" : "OFFLINE")
                         </p>
                         
                         <div style="text-align: left; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);">
@@ -104,6 +108,7 @@
     
     private UserProfile? profile;
     private bool isOwnProfile;
+    private bool isOnline;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -126,5 +131,35 @@
             isOwnProfile = false;
             profile = await ProfileService.GetProfileByUsernameAsync(Username);
         }
+
+        UpdateOnlineStatus();
+    }
+
+    protected override void OnInitialized()
+    {
+        PresenceService.OnPresenceChanged += RefreshUI;
+    }
+
+    private void UpdateOnlineStatus()
+    {
+        if (profile?.User?.UserName != null)
+        {
+            var onlineUsers = PresenceService.GetOnlineUsernames();
+            isOnline = onlineUsers.Any(u => u.Equals(profile.User.UserName, StringComparison.OrdinalIgnoreCase));
+        }
+    }
+
+    private void RefreshUI()
+    {
+        InvokeAsync(() =>
+        {
+            UpdateOnlineStatus();
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        PresenceService.OnPresenceChanged -= RefreshUI;
     }
 }

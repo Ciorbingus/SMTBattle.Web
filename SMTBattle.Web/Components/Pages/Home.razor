@@ -11,20 +11,51 @@
         <div class="row g-4">
             
             <div class="col-md-9">
-                <div class="smt-panel p-5 h-100">
-                    <h1 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 5px; font-weight: 800; text-transform: uppercase;">
+                
+                <div style="background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ffffff; padding: 3rem; margin-bottom: 2rem; box-shadow: 0 0 20px #000;">
+                    <h1 style="color: #ffffff; font-family: 'Cinzel', serif; letter-spacing: 5px; font-weight: 800; text-transform: uppercase; margin: 0;">
                         Welcome to SMT Battle!
                     </h1>
-                    <hr style="border-color: #ffffff; opacity: 0.3;" />
-                    <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 1.5rem; font-style: italic;">
+                    <hr style="border-color: #ffffff; opacity: 0.3; margin: 1.5rem 0;" />
+                    <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 1.5rem; font-style: italic; margin: 0;">
                         "Conquer the Apocalypse."
                     </p>
                 </div>
+
+                <div style="background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ffffff; padding: 2rem; box-shadow: 0 0 20px #000;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ffffff; padding-bottom: 10px; margin-bottom: 20px;">
+                        <h4 style="color: #ffffff; font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; margin: 0;">
+                            Active Battle Rooms
+                        </h4>
+                        <span style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.7rem; opacity: 0.6;">
+                            [ STATUS: SCANNING_ENCOUNTERS ]
+                        </span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-center" style="padding: 4rem 2rem; border: 1px dashed rgba(255,255,255,0.2);">
+                            <div style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 1px; opacity: 0.8; margin-bottom: 10px;">
+                                NO_ACTIVE_ROOMS_DETECTED
+                            </div>
+                            <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 0.9rem; opacity: 0.5; font-style: italic;">
+                                The Vortex World is silent. Be the first to initiate a confrontation.
+                            </p>
+                            
+                            <button style="margin-top: 20px; background-color: transparent; color: #ffffff; border: 1px solid #ffffff; padding: 10px 25px; font-family: 'Cinzel', serif; font-size: 0.8rem; cursor: pointer; text-transform: uppercase; transition: 0.3s;"
+                                    onmouseover="this.style.backgroundColor='#ffffff'; this.style.color='#000000';"
+                                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ffffff';">
+                                Create New Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="col-md-3">
-                <div class="smt-panel p-3 h-100">
-                    <h6 style="color: #ffffff; font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; margin-bottom: 20px;">
+                <div style="background-color: rgba(0, 0, 0, 0.95); border: 2px solid #ffffff; padding: 1.5rem; height: 100%;">
+                    
+                    <h6 style="color: #ffffff; font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #ffffff; padding-bottom: 10px; margin-bottom: 20px;">
                          Network
                     </h6>
                     
@@ -41,21 +72,23 @@
                         > SOUL_MANIFESTATIONS
                     </label>
                     
-                    <div class="smt-scroll-container" style="max-height: 400px; overflow-y: auto;">
+                    <div style="max-height: 500px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.1); padding: 5px;">
                         @if (onlineUsernames.Any())
                         {
                             @foreach (var name in onlineUsernames)
                             {
-                                <a href="/profile/@name" class="d-flex justify-content-between align-items-center p-2 mb-2 text-decoration-none smt-btn-primary" 
-                                   style="border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;">
-                                    <span style="font-family: 'Cinzel', serif; font-size: 0.9rem;">@name.ToUpper()</span>
+                                <a href="/profile/@name" 
+                                   style="display: flex; justify-content: space-between; align-items: center; padding: 10px; margin-bottom: 5px; text-decoration: none; background-color: transparent; border: 1px solid #ffffff; color: #ffffff; transition: 0.2s;"
+                                   onmouseover="this.style.backgroundColor='#ffffff'; this.style.color='#000000';"
+                                   onmouseout="this.style.backgroundColor='transparent'; this.style.color='#ffffff';">
+                                    <span style="font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: bold;">@name.ToUpper()</span>
                                     <span style="font-size: 0.7rem;">▶</span>
                                 </a>
                             }
                         }
                         else
                         {
-                            <div style="color: #ffffff; font-style: italic; opacity: 0.5; padding: 10px;">
+                            <div style="color: #ffffff; font-style: italic; opacity: 0.5; padding: 10px; font-size: 0.8rem;">
                                 Scanning Vortex...
                             </div>
                         }

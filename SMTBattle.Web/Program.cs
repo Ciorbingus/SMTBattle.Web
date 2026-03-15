@@ -46,6 +46,12 @@ builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddSingleton<UserPresenceService>();
 builder.Services.AddScoped<CircuitHandler, PresenceCircuitHandler>();
 
+builder.Services.AddScoped<AdminCompendiumService>();
+builder.Services.AddSingleton<IWebHostEnvironment>(builder.Environment);
+
+builder.Services.AddScoped<HeroService>();
+
+
 var app = builder.Build();
 
 // Pipeline configuration

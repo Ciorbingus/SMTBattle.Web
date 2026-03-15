@@ -1,0 +1,100 @@
+@page "/hero/edit"
+@rendermode InteractiveServer
+@using SMTBattle.Web.Models
+@using SMTBattle.Web.Services
+@using Microsoft.AspNetCore.Components.Authorization
+@inject HeroService HeroSvc
+@inject AuthenticationStateProvider AuthProvider
+
+<div class="hero-editor-container">
+    @if (hero == null)
+    {
+        <p>Se încarcă datele de la terminalul Murgu'...</p>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="@hero.ProfileImageUrl" class="hero-sprite-preview" />
+                <h3>@hero.Name</h3>
+                <div class="points-badge">Puncte Disponibile: @remainingPoints</div>
+            </div>
+
+            <div class="col-md-8">
+                @foreach (var stat in statList)
+                {
+                    <div class="stat-row">
+                        <label>@stat.Name</label>
+                        <div class="stat-controls">
+                            <button @onclick="() => ChangeStat(stat, -1)" disabled="@(stat.CurrentValue <= 3)">-</button>
+                            <span class="stat-value">@stat.CurrentValue</span>
+                            <button @onclick="() => ChangeStat(stat, 1)" disabled="@(remainingPoints <= 0)">+</button>
+                        </div>
+                    </div>
+                }
+                
+                <button class="btn-save" @onclick="SaveHero" disabled="@(remainingPoints > 0)">
+                    Sincronizează Datele
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private Hero? hero;
+    private int remainingPoints = 35;
+
+    private class StatItem { 
+        public string Name { get; set; } = ""; 
+        public int CurrentValue { get; set; } 
+    }
+
+    private List<StatItem> statList = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var userId = authState.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+        if (userId != null)
+        {
+            hero = await HeroSvc.GetOrCreateHeroAsync(userId);
+            
+            statList = new List<StatItem> {
+                new() { Name = "Strength", CurrentValue = hero.Strength },
+                new() { Name = "Magic", CurrentValue = hero.Magic },
+                new() { Name = "Vitality", CurrentValue = hero.Vitality },
+                new() { Name = "Agility", CurrentValue = hero.Agility },
+                new() { Name = "Luck", CurrentValue = hero.Luck }
+            };
+
+            CalculateRemainingPoints();
+        }
+    }
+
+    private void ChangeStat(StatItem stat, int amount)
+    {
+        stat.CurrentValue += amount;
+        CalculateRemainingPoints();
+    }
+
+    private void CalculateRemainingPoints()
+    {
+        int totalSpent = statList.Sum(s => s.CurrentValue) - (5 * 3); 
+        remainingPoints = 35 - totalSpent;
+    }
+
+    private async Task SaveHero()
+    {
+        if (hero == null) return;
+
+        hero.Strength = statList[0].CurrentValue;
+        hero.Magic = statList[1].CurrentValue;
+        hero.Vitality = statList[2].CurrentValue;
+        hero.Agility = statList[3].CurrentValue;
+        hero.Luck = statList[4].CurrentValue;
+
+        await HeroSvc.SaveHeroAsync(hero);
+    }
+}

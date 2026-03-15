@@ -36,12 +36,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9BY2NvdW50U2V0dGluZ3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/Components/Pages/Compendium.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db21wZW5kaXVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/Components/Pages/DemonDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9EZW1vbkRldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/Components/Pages/EditProfile.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FZGl0UHJvZmlsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9FcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/Components/Pages/HeroEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9IZXJvRWRpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/Components/Pages/History.razor]

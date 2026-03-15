@@ -183,3 +183,5 @@
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/7e0t90k8zk-aastvfvp5l.gz
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/e7mu11idaz-aastvfvp5l.gz
 /home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/zeoo04cj3n-z9qis1vokr.gz
+/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/1b9b76j7d5-ah2itu7cy3.gz
+/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/obj/Debug/net9.0/compressed/panmnb6813-lv5tvmajl9.gz

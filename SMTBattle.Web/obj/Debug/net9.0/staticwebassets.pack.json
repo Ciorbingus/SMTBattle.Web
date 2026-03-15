@@ -17,8 +17,36 @@
       "PackagePath": "staticwebassets/css/smt-theme.css"
     },
     {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/data/compendium.json",
+      "PackagePath": "staticwebassets/data/compendium.json"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/data/heroes.json",
+      "PackagePath": "staticwebassets/data/heroes.json"
+    },
+    {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/default-avatar.jpg",
       "PackagePath": "staticwebassets/images/default-avatar.jpg"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/decarabia.webp",
+      "PackagePath": "staticwebassets/images/demons/decarabia.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/dummy.png",
+      "PackagePath": "staticwebassets/images/demons/dummy.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/forneus.webp",
+      "PackagePath": "staticwebassets/images/demons/forneus.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/larisa.webp",
+      "PackagePath": "staticwebassets/images/demons/larisa.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/matador.webp",
+      "PackagePath": "staticwebassets/images/demons/matador.webp"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/alpeh.webp",
@@ -47,6 +75,10 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/decarabia.webp",
       "PackagePath": "staticwebassets/images/sprites/decarabia.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/dummy.png",
+      "PackagePath": "staticwebassets/images/sprites/dummy.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/sprites/forneus.webp",
@@ -263,6 +295,10 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/smt-background2.png",
       "PackagePath": "staticwebassets/smt-background2.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png",
+      "PackagePath": "staticwebassets/uploads/1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
