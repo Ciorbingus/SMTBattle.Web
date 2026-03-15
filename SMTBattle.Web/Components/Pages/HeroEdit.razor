@@ -1,66 +1,185 @@
 @page "/hero/edit"
 @rendermode InteractiveServer
 @using SMTBattle.Web.Models
+@using SMTBattle.Web.Enums
 @using SMTBattle.Web.Services
 @using Microsoft.AspNetCore.Components.Authorization
 @inject HeroService HeroSvc
+@inject NavigationManager NavManager
 @inject AuthenticationStateProvider AuthProvider
 
-<div class="hero-editor-container">
-    @if (hero == null)
-    {
-        <p>Se încarcă datele de la terminalul Murgu'...</p>
-    }
-    else
-    {
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img src="@hero.ProfileImageUrl" class="hero-sprite-preview" />
-                <h3>@hero.Name</h3>
-                <div class="points-badge">Puncte Disponibile: @remainingPoints</div>
+<div style="min-height: 100vh; padding: 3rem 0; color: white; background: #000000; border: 2px solid #ffffff; font-family: 'Cinzel', serif;">
+    <div class="container">
+        @if (hero == null)
+        {
+            <div class="text-center mt-5">
+                <h2 style="color: #ffffff;">[ INITIALIZING_NEURAL_LINK... ]</h2>
+            </div>
+        }
+        else
+        {
+            <div class="row mb-4">
+                <div class="col-12 border-bottom border-white pb-2 d-flex justify-content-between align-items-end">
+                    <div>
+                        <h1 style="font-size: 2.5rem; margin: 0; text-transform: uppercase; letter-spacing: 5px;">
+                            Hero_Configuration
+                        </h1>
+                        <span style="color: #888; letter-spacing: 2px; font-size: 0.9rem;">MANIFESTATION_ID: @hero.Id.Substring(0,8)</span>
+                    </div>
+                    <div class="text-end">
+                        <h3 style="color: #fff; margin: 0; letter-spacing: 3px;">LVL @hero.Level</h3>
+                        <div style="font-family: 'Consolas'; font-size: 0.8rem; color: #aaa;">STATS_POOL: @remainingPoints</div>
+                        <span style="font-family: 'Consolas'; font-size: 0.7rem; color: #aaaaaa;">AFFINITY_POOL: @affinityPointsPool</span>
+
+                    </div>
+                </div>
             </div>
 
-            <div class="col-md-8">
-                @foreach (var stat in statList)
-                {
-                    <div class="stat-row">
-                        <label>@stat.Name</label>
-                        <div class="stat-controls">
-                            <button @onclick="() => ChangeStat(stat, -1)" disabled="@(stat.CurrentValue <= 3)">-</button>
-                            <span class="stat-value">@stat.CurrentValue</span>
-                            <button @onclick="() => ChangeStat(stat, 1)" disabled="@(remainingPoints <= 0)">+</button>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="text-center mb-4">
+                        <div style="border: 2px solid white; padding: 5px; background: #000; display: inline-block;">
+                            <img src="@hero.ProfileImageUrl" style="width: 250px; height: 350px; object-fit: contain; border: 1px solid #444;" alt="Hero Avatar" />
+                        </div>
+                        <div class="mt-3 d-flex justify-content-center gap-2">
+                            @foreach (var img in spriteOptions)
+                            {
+                                <img src="@img" @onclick="() => hero.ProfileImageUrl = img" 
+                                     style="width: 45px; height: 45px; cursor: pointer; border: @(hero.ProfileImageUrl == img ? "2px solid white" : "1px solid #333"); opacity: @(hero.ProfileImageUrl == img ? "1" : "0.3"); transition: 0.3s;" />
+                            }
                         </div>
                     </div>
-                }
+
+                    <div class="p-3" style="background: rgba(255,255,255,0.03); border: 1px solid #333;">
+                        <h6 style="border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 20px; letter-spacing: 1px;">PRIMARY_ATTRIBUTES</h6>
+                            @foreach (var stat in statList)
+                            {
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <span style="color: #888; font-size: 0.75rem; font-family: 'Consolas';">@stat.Name.ToUpper()</span>
+                                        <span style="font-weight: bold; font-family: 'Consolas'; font-size: 0.9rem;">@stat.CurrentValue</span>
+                                        </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button class="btn-stat" @onclick="() => AdjustStat(stat, -1)" disabled="@(stat.CurrentValue <= 3)">-</button>
                 
-                <button class="btn-save" @onclick="SaveHero" disabled="@(remainingPoints > 0)">
-                    Sincronizează Datele
-                </button>
+                                        <div style="flex-grow: 1; height: 4px; background: #222; position: relative; overflow: hidden;">
+                                            <div style="width: @(stat.CurrentValue * 2)%; height: 100%; background: #ffffff; transition: width 0.3s ease;">
+                                            </div>
+                                        </div>
+
+                                        <button class="btn-stat" @onclick="() => AdjustStat(stat, 1)" disabled="@(remainingPoints <= 0)">+</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                <div class="col-lg-8">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between mb-1"><span style="font-size: 0.7rem; font-family: 'Consolas';">HP</span><span>@CalculateHP()/@CalculateHP()</span></div>
+                            <div style="height: 12px; background: #111; border: 1px solid #444; padding: 2px;"><div style="width: 100%; height: 100%; background: #e69d4a;"></div></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-between mb-1"><span style="font-size: 0.7rem; font-family: 'Consolas';">MP</span><span>@CalculateMP()/@CalculateMP()</span></div>
+                            <div style="height: 12px; background: #111; border: 1px solid #444; padding: 2px;"><div style="width: 100%; height: 100%; background: #431fe7;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 style="border-bottom: 1px solid #333; padding-bottom: 5px; letter-spacing: 1px;">MANIFESTED_SKILLS_ALLOCATION</h6>
+                        <div class="row g-2 mt-2">
+                            @for (int i = 0; i < 6; i++)
+                            {
+                                var index = i;
+                                <div class="col-md-4">
+                                    <select class="skill-dropdown" @bind="hero.Skills[index]">
+                                        <option value="@SkillName.None">-------</option>
+                                        @foreach (var s in Enum.GetValues<SkillName>())
+                                        {
+                                            @if (s != SkillName.None)
+                                            {
+                                                <option value="@s">@s.ToString().ToUpper()</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 style="border-bottom: 1px solid #333; padding-bottom: 5px; letter-spacing: 1px;">ELEMENTAL_AFFINITY_TUNING</h6>
+                        <div class="d-flex flex-wrap gap-2 mt-2">
+                            @foreach (var element in Enum.GetValues<Elements>())
+                            {
+                                @if (element.ToString() == "Almighty") continue;
+                                <div style="width: 80px; text-align: center; border: 1px solid #333; padding: 5px; background: @GetResColor(hero.Resistances[element]);">
+                                    <div style="font-size: 0.55rem; color: #888; font-family: 'Consolas';">@element.ToString().Substring(0, 3).ToUpper()</div>
+                                    <div class="d-flex align-items-center justify-content-between mt-1">
+                                        <button class="btn-res" @onclick="() => AdjustAffinity(element, -1)" disabled="@(hero.Resistances[element] <= -1)">-</button>
+                                        <span style="font-weight: bold; font-size: 0.75rem;">@GetResLabel(hero.Resistances[element])</span>
+                                        <button class="btn-res" @onclick="() => AdjustAffinity(element, 1)" disabled="@(affinityPointsPool <= 0 || hero.Resistances[element] >= 4)">+</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <button class="execute-btn" @onclick="HandleSave" disabled="@(remainingPoints > 0 || affinityPointsPool < 0)">
+                            @if (remainingPoints > 0) { <span>[ ALLOCATE_ALL_STATS ]</span> }
+                            else { <span>EXECUTE_SERIALIZATION</span> }
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
+
+<style>
+    .btn-stat {
+        background: transparent; border: 1px solid white; color: white;
+        width: 25px; height: 25px; display: flex; align-items: center; justify-content: center;
+        font-family: 'Consolas'; font-size: 0.8rem; cursor: pointer; transition: 0.2s;
+    }
+    .btn-stat:hover:not(:disabled) { background: white; color: black; }
+    .btn-stat:disabled { opacity: 0.1; cursor: default; }
+
+    .btn-res { background: transparent; border: none; color: white; cursor: pointer; font-size: 0.7rem; padding: 0 4px; }
+    .btn-res:disabled { opacity: 0.1; }
+
+    .skill-dropdown {
+        width: 100%; background: rgba(255,255,255,0.05); color: white;
+        border: none; border-left: 2px solid white; padding: 8px;
+        font-family: 'Consolas'; font-size: 0.8rem; cursor: pointer; outline: none;
+    }
+    .skill-dropdown option { background: #000; color: #fff; }
+
+    .execute-btn {
+        width: 100%; padding: 15px; background: white; color: black; border: none;
+        font-family: 'Cinzel'; font-weight: bold; letter-spacing: 5px; cursor: pointer; transition: 0.4s;
+    }
+    .execute-btn:hover:not(:disabled) { background: #888; color: white; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+    .execute-btn:disabled { background: #111; color: #333; cursor: not-allowed; }
+</style>
 
 @code {
     private Hero? hero;
     private int remainingPoints = 35;
+    private int affinityPointsPool = 4;
+    private List<string> spriteOptions = new() { "/images/heroes/marine.webp", "/images/heroes/demifiend.webp", "/images/heroes/flynn.webp", "/images/heroes/aleph.webp" };
 
-    private class StatItem { 
-        public string Name { get; set; } = ""; 
-        public int CurrentValue { get; set; } 
-    }
-
+    private class StatItem { public string Name = ""; public int CurrentValue; }
     private List<StatItem> statList = new();
 
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthProvider.GetAuthenticationStateAsync();
         var userId = authState.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-
-        if (userId != null)
-        {
+        if (userId != null) {
             hero = await HeroSvc.GetOrCreateHeroAsync(userId);
-            
             statList = new List<StatItem> {
                 new() { Name = "Strength", CurrentValue = hero.Strength },
                 new() { Name = "Magic", CurrentValue = hero.Magic },
@@ -68,33 +187,40 @@
                 new() { Name = "Agility", CurrentValue = hero.Agility },
                 new() { Name = "Luck", CurrentValue = hero.Luck }
             };
-
-            CalculateRemainingPoints();
+            UpdatePoints();
+            UpdateAffinityPool();
         }
     }
+ 
+    private int CalculateHP() => (hero!.Level + statList.First(s => s.Name == "Vitality").CurrentValue) * 6;
+    private int CalculateMP() => (hero!.Level + statList.First(s => s.Name == "Magic").CurrentValue) * 3;
 
-    private void ChangeStat(StatItem stat, int amount)
-    {
-        stat.CurrentValue += amount;
-        CalculateRemainingPoints();
+    private void AdjustStat(StatItem stat, int val) { stat.CurrentValue += val; UpdatePoints(); }
+    private void UpdatePoints() => remainingPoints = 35 - (statList.Sum(s => s.CurrentValue) - 15);
+
+    private void AdjustAffinity(Elements el, int dir) { hero!.Resistances[el] += dir; UpdateAffinityPool(); }
+    private void UpdateAffinityPool() {
+        int spent = 0;
+        foreach (var res in hero!.Resistances) {
+            if (res.Key.ToString() == "Almighty") continue;
+            if (res.Value > 0) spent += res.Value;
+            if (res.Value < 0) spent -= 1;
+        }
+        affinityPointsPool = 4 - spent;
     }
 
-    private void CalculateRemainingPoints()
-    {
-        int totalSpent = statList.Sum(s => s.CurrentValue) - (5 * 3); 
-        remainingPoints = 35 - totalSpent;
-    }
-
-    private async Task SaveHero()
-    {
-        if (hero == null) return;
-
-        hero.Strength = statList[0].CurrentValue;
-        hero.Magic = statList[1].CurrentValue;
-        hero.Vitality = statList[2].CurrentValue;
-        hero.Agility = statList[3].CurrentValue;
-        hero.Luck = statList[4].CurrentValue;
-
+    private async Task HandleSave() {
+        hero!.Strength = statList[0].CurrentValue;
+        hero!.Magic = statList[1].CurrentValue;
+        hero!.Vitality = statList[2].CurrentValue;
+        hero!.Agility = statList[3].CurrentValue;
+        hero!.Luck = statList[4].CurrentValue;
         await HeroSvc.SaveHeroAsync(hero);
+        NavManager.NavigateTo("/profile");
     }
+
+    private string GetResLabel(int val) => val switch { -1 => "WK", 1 => "STR", 2 => "NUL", 3 => "DR", 4 => "REP", _ => "-" };
+    private string GetResColor(int val) => val switch {
+        -1 => "rgba(255,0,0,0.15)", 2 => "rgba(255,255,255,0.05)", 3 => "rgba(0,255,0,0.1)", 4 => "rgba(255,0,255,0.1)", _ => "transparent"
+    };
 }

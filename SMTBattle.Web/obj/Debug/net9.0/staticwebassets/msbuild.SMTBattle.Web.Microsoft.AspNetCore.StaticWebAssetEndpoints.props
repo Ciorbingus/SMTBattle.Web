@@ -120,14 +120,14 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BgoCn0etG\u002BRqAwJfDPrDtg5pvKfYssYKtq7YxdJD0sA="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1014218"},{"Name":"Content-Type","Value":"image/webp"},{"Name":"ETag","Value":"\u0022\u002BgoCn0etG\u002BRqAwJfDPrDtg5pvKfYssYKtq7YxdJD0sA=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Mar 2026 17:11:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SMTBattle.Web/images/heroes/alpeh.t1h5ntluvt.webp">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\alpeh.webp'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SMTBattle.Web/images/heroes/aleph.t1h5ntluvt.webp">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\aleph.webp'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"t1h5ntluvt"},{"Name":"integrity","Value":"sha256-bz//L3olyG\u002B7J8V866nj4w9Tf1jl5DPQ8lZU4unRaZw="},{"Name":"label","Value":"_content/SMTBattle.Web/images/heroes/alpeh.webp"}]]]></EndpointProperties>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"t1h5ntluvt"},{"Name":"integrity","Value":"sha256-bz//L3olyG\u002B7J8V866nj4w9Tf1jl5DPQ8lZU4unRaZw="},{"Name":"label","Value":"_content/SMTBattle.Web/images/heroes/aleph.webp"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1551962"},{"Name":"Content-Type","Value":"image/webp"},{"Name":"ETag","Value":"\u0022bz//L3olyG\u002B7J8V866nj4w9Tf1jl5DPQ8lZU4unRaZw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 14 Mar 2026 12:19:28 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/SMTBattle.Web/images/heroes/alpeh.webp">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\alpeh.webp'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/SMTBattle.Web/images/heroes/aleph.webp">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\heroes\aleph.webp'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-bz//L3olyG\u002B7J8V866nj4w9Tf1jl5DPQ8lZU4unRaZw="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1551962"},{"Name":"Content-Type","Value":"image/webp"},{"Name":"ETag","Value":"\u0022bz//L3olyG\u002B7J8V866nj4w9Tf1jl5DPQ8lZU4unRaZw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 14 Mar 2026 12:19:28 GMT"}]]]></ResponseHeaders>
@@ -911,6 +911,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-YynWcilhxFCpz1qGN308R\u002BIfJn5rt2\u002BoriK41gqvbe4="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"703350"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022YynWcilhxFCpz1qGN308R\u002BIfJn5rt2\u002BoriK41gqvbe4=\u0022"},{"Name":"Last-Modified","Value":"Sat, 14 Mar 2026 14:21:16 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SMTBattle.Web/uploads/61d3e6af-0704-47da-bf78-0a81a6e78c80_1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.neb78ecq0j.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\61d3e6af-0704-47da-bf78-0a81a6e78c80_1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"neb78ecq0j"},{"Name":"integrity","Value":"sha256-gYqVZFCf2Pqtxjo4dt31E32BifYDKbjjr1r5otgMAj8="},{"Name":"label","Value":"_content/SMTBattle.Web/uploads/61d3e6af-0704-47da-bf78-0a81a6e78c80_1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"235136"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022gYqVZFCf2Pqtxjo4dt31E32BifYDKbjjr1r5otgMAj8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Mar 2026 19:41:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/SMTBattle.Web/uploads/61d3e6af-0704-47da-bf78-0a81a6e78c80_1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\61d3e6af-0704-47da-bf78-0a81a6e78c80_1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gYqVZFCf2Pqtxjo4dt31E32BifYDKbjjr1r5otgMAj8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"235136"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022gYqVZFCf2Pqtxjo4dt31E32BifYDKbjjr1r5otgMAj8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Mar 2026 19:41:37 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/SMTBattle.Web/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.s6p55jgnbq.webp">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.webp'))</AssetFile>

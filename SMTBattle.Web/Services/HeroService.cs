@@ -57,7 +57,7 @@ public class HeroService
             Name = "Hero",
             ProfileImageUrl = "/images/heroes/marine.webp",
             Strength = 3, Magic = 3, Vitality = 3, Agility = 3, Luck = 3,
-            Level = 1,
+            Level = 35,
         };
         
         _context.Heroes.Add(hero);

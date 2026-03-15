@@ -49,8 +49,8 @@
       "PackagePath": "staticwebassets/images/demons/matador.webp"
     },
     {
-      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/alpeh.webp",
-      "PackagePath": "staticwebassets/images/heroes/alpeh.webp"
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/aleph.webp",
+      "PackagePath": "staticwebassets/images/heroes/aleph.webp"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/demifiend.webp",
@@ -303,6 +303,10 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",
       "PackagePath": "staticwebassets/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/61d3e6af-0704-47da-bf78-0a81a6e78c80_1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png",
+      "PackagePath": "staticwebassets/uploads/61d3e6af-0704-47da-bf78-0a81a6e78c80_1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/711078cd-93ab-418b-b6c1-e033ca135bcd_639090948938677973.webp",
