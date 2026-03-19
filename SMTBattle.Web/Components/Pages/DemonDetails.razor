@@ -3,7 +3,9 @@
 @using SMTBattle.Web.Models
 @using SMTBattle.Web.Enums
 @inject AdminCompendiumService AdminService
-@inject NavigationManager Nav
+@inject NavigationManager NavigationManager
+
+<PageTitle>Compendium | @(demon != null ? demon.Name : "Demon not Found")</PageTitle>
 
 <div style="min-height: 100vh; padding: 3rem 0; color: white; background: #000000; border: 2px solid #ffffff;">
     <div class="container">
@@ -11,7 +13,7 @@
         {
             <div class="text-center mt-5">
                 <h2 style="font-family: 'Cinzel'; color: #ffffff;">[ ERROR: ENTITY_NOT_FOUND ]</h2>
-                <button class="btn btn-outline-light mt-3" @onclick='() => Nav.NavigateTo("/compendium")'>RETURN_TO_DATABASE</button>
+                <button class="btn btn-outline-light mt-3" @onclick='() => NavigationManager.NavigateTo("/compendium")'>RETURN_TO_DATABASE</button>
             </div>
         }
         else
@@ -109,15 +111,16 @@
             </div>
 
             <div class="mt-5 text-center">
-                <button class="btn btn-outline-light px-5 py-2" style="font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px;" @onclick='() => Nav.NavigateTo("/compendium")'>
-                    RETURN_TO_ARCHIVE
+                <button class="btn btn-outline-light px-5 py-2" style="font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px;" @onclick='() => NavigationManager.NavigateTo("/compendium")'>
+                    RETURN_TO_COMPENDIUM
                 </button>
             </div>
         }
     </div>
 </div>
 
-@code {
+@code 
+{
     [Parameter] public string Id { get; set; } = "";
     private Demon? demon;
 

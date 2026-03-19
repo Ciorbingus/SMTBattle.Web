@@ -36,7 +36,7 @@ public class ProfileService : IProfileService
         var existingProfile = await _context.UserProfiles.FindAsync(profile.Id);
         if (existingProfile == null) return false;
 
-        if (!string.IsNullOrEmpty(existingProfile.ProfileImageUrl) && 
+        if (!string.IsNullOrEmpty(existingProfile.ProfileImageUrl) &&
         existingProfile.ProfileImageUrl != profile.ProfileImageUrl)
         {
             DeletePhysicalFile(existingProfile.ProfileImageUrl);
@@ -77,29 +77,29 @@ public class ProfileService : IProfileService
         {
             DeletePhysicalFile(profile.ProfileImageUrl);
         }
-    
+
         _context.UserProfiles.Remove(profile);
         return await _context.SaveChangesAsync() > 0;
     }
 
-private void DeletePhysicalFile(string relativePath)
-{
-    try
+    private void DeletePhysicalFile(string relativePath)
     {
-        if (relativePath.Contains("default-avatar")) return;
-
-        var filePath = Path.Combine(_env.WebRootPath, relativePath.TrimStart('/'));
-        
-        if (File.Exists(filePath))
+        try
         {
-            File.Delete(filePath);
-            Console.WriteLine($"[SYSTEM] Purged file: {filePath}");
+            if (relativePath.Contains("default-avatar")) return;
+
+            var filePath = Path.Combine(_env.WebRootPath, relativePath.TrimStart('/'));
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                Console.WriteLine($"[SYSTEM] Purged file: {filePath}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[ERROR] Could not delete file: {ex.Message}");
         }
     }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"[ERROR] Could not delete file: {ex.Message}");
-    }
-}
 
 }

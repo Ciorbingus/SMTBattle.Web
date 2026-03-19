@@ -5,8 +5,10 @@
 @using SMTBattle.Web.Services
 @using Microsoft.AspNetCore.Components.Authorization
 @inject HeroService HeroSvc
-@inject NavigationManager NavManager
+@inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthProvider
+
+<PageTitle>Team | Hero Configuration</PageTitle>
 
 <div style="min-height: 100vh; padding: 3rem 0; color: white; background: #000000; border: 2px solid #ffffff; font-family: 'Cinzel', serif;">
     <div class="container">
@@ -22,7 +24,7 @@
                 <div class="col-12 border-bottom border-white pb-2 d-flex justify-content-between align-items-end">
                     <div>
                         <h1 style="font-size: 2.5rem; margin: 0; text-transform: uppercase; letter-spacing: 5px;">
-                            Hero_Configuration
+                            @hero.Name
                         </h1>
                         <span style="color: #888; letter-spacing: 2px; font-size: 0.9rem;">MANIFESTATION_ID: @hero.Id.Substring(0,8)</span>
                     </div>
@@ -45,7 +47,7 @@
                             @foreach (var img in spriteOptions)
                             {
                                 <img src="@img" @onclick="() => hero.ProfileImageUrl = img" 
-                                     style="width: 45px; height: 45px; cursor: pointer; border: @(hero.ProfileImageUrl == img ? "2px solid white" : "1px solid #333"); opacity: @(hero.ProfileImageUrl == img ? "1" : "0.3"); transition: 0.3s;" />
+                                     style="width: 45px; height: 45px; cursor: pointer; object-fit: cover; object-position: top; border: @(hero.ProfileImageUrl == img ? "2px solid white" : "1px solid #333"); opacity: @(hero.ProfileImageUrl == img ? "1" : "0.3"); transition: 0.3s;" />
                             }
                         </div>
                     </div>
@@ -127,7 +129,10 @@
                     </div>
 
                     <div class="mt-5">
-                        <button class="execute-btn" @onclick="HandleSave" disabled="@(remainingPoints > 0 || affinityPointsPool < 0)">
+                        @{
+                            bool isDisabled = remainingPoints > 0 || affinityPointsPool < 0 || string.IsNullOrEmpty(hero.Name);
+                        }
+                        <button class="btn btn-outline-light px-5 py-2" @onclick="HandleSave" disabled="@(remainingPoints > 0 || affinityPointsPool < 0)">
                             @if (remainingPoints > 0) { <span>[ ALLOCATE_ALL_STATS ]</span> }
                             else { <span>EXECUTE_SERIALIZATION</span> }
                         </button>
@@ -169,7 +174,14 @@
     private Hero? hero;
     private int remainingPoints = 35;
     private int affinityPointsPool = 4;
-    private List<string> spriteOptions = new() { "/images/heroes/marine.webp", "/images/heroes/demifiend.webp", "/images/heroes/flynn.webp", "/images/heroes/aleph.webp" };
+    private List<string> spriteOptions = new() { 
+        "/images/heroes/marine.webp", 
+        "/images/heroes/demifiend.webp", 
+        "/images/heroes/flynn.webp", 
+        "/images/heroes/aleph.webp",
+        "/images/heroes/jokerp2.webp",
+        "/images/heroes/chudstin.png",
+    };
 
     private class StatItem { public string Name = ""; public int CurrentValue; }
     private List<StatItem> statList = new();
@@ -199,9 +211,11 @@
     private void UpdatePoints() => remainingPoints = 35 - (statList.Sum(s => s.CurrentValue) - 15);
 
     private void AdjustAffinity(Elements el, int dir) { hero!.Resistances[el] += dir; UpdateAffinityPool(); }
-    private void UpdateAffinityPool() {
+    private void UpdateAffinityPool() 
+    {
         int spent = 0;
-        foreach (var res in hero!.Resistances) {
+        foreach (var res in hero!.Resistances) 
+        {
             if (res.Key.ToString() == "Almighty") continue;
             if (res.Value > 0) spent += res.Value;
             if (res.Value < 0) spent -= 1;
@@ -210,13 +224,14 @@
     }
 
     private async Task HandleSave() {
+        hero!.Name = hero!.User.Profile.DisplayName;
         hero!.Strength = statList[0].CurrentValue;
         hero!.Magic = statList[1].CurrentValue;
         hero!.Vitality = statList[2].CurrentValue;
         hero!.Agility = statList[3].CurrentValue;
         hero!.Luck = statList[4].CurrentValue;
         await HeroSvc.SaveHeroAsync(hero);
-        NavManager.NavigateTo("/profile");
+        NavigationManager.NavigateTo("/profile");
     }
 
     private string GetResLabel(int val) => val switch { -1 => "WK", 1 => "STR", 2 => "NUL", 3 => "DR", 4 => "REP", _ => "-" };

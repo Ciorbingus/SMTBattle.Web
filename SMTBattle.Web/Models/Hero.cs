@@ -23,6 +23,15 @@ public class Hero : Troop
             PartySlots[reserveIndex] = temp;
         }
     }
+
+    public void AddDemonToParty(Demon demon, int slotIndex)
+{
+    if (slotIndex >= 0 && slotIndex < PartySlots.Length)
+    {
+        PartySlots[slotIndex].DemonId = demon.Id;
+        PartySlots[slotIndex].CachedDemon = demon;
+    }
+}
 }
 
 public class TeamSlot

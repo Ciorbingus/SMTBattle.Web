@@ -29,12 +29,20 @@
       "PackagePath": "staticwebassets/images/default-avatar.jpg"
     },
     {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/ame-no-uzume.png",
+      "PackagePath": "staticwebassets/images/demons/ame-no-uzume.png"
+    },
+    {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/decarabia.webp",
       "PackagePath": "staticwebassets/images/demons/decarabia.webp"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/dummy.png",
       "PackagePath": "staticwebassets/images/demons/dummy.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/forneus.png",
+      "PackagePath": "staticwebassets/images/demons/forneus.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/forneus.webp",
@@ -49,8 +57,16 @@
       "PackagePath": "staticwebassets/images/demons/matador.webp"
     },
     {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/demons/ose.webp",
+      "PackagePath": "staticwebassets/images/demons/ose.webp"
+    },
+    {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/aleph.webp",
       "PackagePath": "staticwebassets/images/heroes/aleph.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/chudstin.png",
+      "PackagePath": "staticwebassets/images/heroes/chudstin.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/demifiend.webp",
@@ -59,6 +75,10 @@
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/flynn.webp",
       "PackagePath": "staticwebassets/images/heroes/flynn.webp"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/jokerp2.webp",
+      "PackagePath": "staticwebassets/images/heroes/jokerp2.webp"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/images/heroes/marine.webp",
@@ -297,8 +317,20 @@
       "PackagePath": "staticwebassets/smt-background2.png"
     },
     {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/143dacb1-504b-4d46-9a6b-6141e3937f2c_dummy.png",
+      "PackagePath": "staticwebassets/uploads/143dacb1-504b-4d46-9a6b-6141e3937f2c_dummy.png"
+    },
+    {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png",
       "PackagePath": "staticwebassets/uploads/1d1e6e18-3ae8-4213-9250-2dc2c4fa1d5d_Screenshot 2024-08-27 214404.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/3364be44-8320-4e4f-9936-8757542dff7d_Screenshot 2024-02-26 085852.png",
+      "PackagePath": "staticwebassets/uploads/3364be44-8320-4e4f-9936-8757542dff7d_Screenshot 2024-02-26 085852.png"
+    },
+    {
+      "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/4259d5ef-4b39-4d52-8844-40c01b6c5f63_Screenshot 2024-01-11 203926.png",
+      "PackagePath": "staticwebassets/uploads/4259d5ef-4b39-4d52-8844-40c01b6c5f63_Screenshot 2024-01-11 203926.png"
     },
     {
       "Id": "/home/florian/Projects/SMTBattle.Web/SMTBattle.Web/wwwroot/uploads/5561a976-389d-4c0e-9771-6a6370b002a7_Screenshot 2024-01-14 143630.png",

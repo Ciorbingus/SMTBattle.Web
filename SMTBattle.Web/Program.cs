@@ -3,7 +3,7 @@ using SMTBattle.Web.Data;
 using SMTBattle.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc; 
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using SMTBattle.Web.Services;
 using Microsoft.AspNetCore.Components.Server.Circuits;
@@ -28,7 +28,8 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies();
 
-builder.Services.AddIdentityCore<User>(options => {
+builder.Services.AddIdentityCore<User>(options =>
+{
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
@@ -79,17 +80,17 @@ app.MapPost("Account/Logout", async (
 
 // Delete Account endpoint
 app.MapPost("Account/Delete", async (
-    SignInManager<User> signInManager, 
+    SignInManager<User> signInManager,
     UserManager<User> userManager,
-    IProfileService profileService, 
+    IProfileService profileService,
     ClaimsPrincipal userPrincipal) =>
 {
     var user = await userManager.GetUserAsync(userPrincipal);
     if (user != null)
     {
-    
+
         var profile = await profileService.GetProfileByIdAsync(user.Id);
-        
+
         await userManager.DeleteAsync(user);
         await signInManager.SignOutAsync();
     }

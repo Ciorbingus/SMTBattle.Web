@@ -37,6 +37,6 @@ public enum SkillName
 
 
     // Unique Skills
-    RedCapote, Meditation
+    RedCapote, Meditation, Andalucia
 
 }

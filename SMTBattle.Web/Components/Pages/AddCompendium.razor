@@ -1,0 +1,270 @@
+@page "/compendium/add"
+@rendermode InteractiveServer
+@using SMTBattle.Web.Models
+@using SMTBattle.Web.Enums
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AdminCompendiumService AdminService
+@inject NavigationManager NavigationManager
+
+<div style="min-height: 100vh; padding: 3rem 0; color: white; background: #000000; border: 2px solid #ffffff; font-family: 'Cinzel', serif;">
+    <div class="container">
+        <div style="margin-bottom: 1.5rem;" class="row">
+            <div class="col-12 d-flex justify-content-between align-items-end" style="border-bottom: 1px solid white; padding-bottom: 0.5rem;">
+                <div>
+                    <h1 style="font-size: 2.5rem; margin: 0; text-transform: uppercase; letter-spacing: 5px;">
+                        ENTITY_CREATION
+                    </h1>
+                    <span style="color: #888; letter-spacing: 2px; font-size: 0.9rem;">ADMIN_COMPENDIUM_ACCESS</span>
+                </div>
+                <div class="text-end">
+                    <h3 style="color: #fff; margin: 0; letter-spacing: 3px;">LVL @newDemon.Level</h3>
+                    <div style="font-family: 'Consolas'; font-size: 0.8rem; color: #aaa;">STATS_POOL: @remainingPoints</div>
+                    <span style="font-family: 'Consolas'; font-size: 0.7rem; color: @(affinityPointsPool < 0 ? "#ff0000" : "#aaaaaa");">
+                        AFFINITY_POOL: @affinityPointsPool
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <label style="color: white; font-family: 'Cinzel'; display: block; margin-bottom: 10px; font-size: 0.8rem;">> IMAGE_MANIFESTATION</label>
+                    <div style="margin-bottom: 1.5rem; border: 2px solid white; padding: 5px; display: inline-block; background: #000; box-shadow: 0 0 15px rgba(255,255,255,0.1);">
+                        <img src="@previewUrl" alt="Preview" style="width: 250px; height: 350px; object-fit: contain; border: 1px solid #222;" />
+                    </div>
+                    <div style="padding: 0 1rem;">
+                        <InputFile OnChange="HandleFileSelected" 
+                                   style="background: black; color: white; border: 1px solid white; border-radius: 0; width: 100%; padding: 0.375rem 0.75rem;" 
+                                   accept=".jpg,.jpeg,.png,.webp" />
+                        <p style="font-size: 0.6rem; color: #555; margin-top: 8px; font-family: 'Consolas';">MAX_SIZE: 2MB | FORMAT: WEBP/PNG/JPG</p>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid #333; padding: 1rem;">
+                    <h6 style="border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 20px; letter-spacing: 1px; font-size: 0.8rem;">PRIMARY_ATTRIBUTES</h6>
+                    @foreach (var stat in statList)
+                    {
+                        <div style="margin-bottom: 1rem;">
+                            <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 0.25rem;">
+                                <span style="color: #888; font-size: 0.75rem; font-family: 'Consolas';">@stat.Name.ToUpper()</span>
+                                <span style="font-weight: bold; font-family: 'Consolas'; font-size: 0.9rem;">@stat.CurrentValue</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <button @onclick="() => AdjustStat(stat, -1)" disabled="@(stat.CurrentValue <= 1)"
+                                        style="background: transparent; border: 1px solid white; color: white; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-family: 'Consolas'; font-size: 0.8rem; cursor: pointer; opacity: @(stat.CurrentValue <= 1 ? "0.1" : "1");">
+                                    -
+                                </button>
+                                <div style="flex-grow: 1; height: 4px; background: #222; position: relative; overflow: hidden;">
+                                    <div style="width: @(stat.CurrentValue * 4)%; height: 100%; background: #ffffff; transition: width 0.3s ease;"></div>
+                                </div>
+                                <button @onclick="() => AdjustStat(stat, 1)" disabled="@(remainingPoints <= 0)"
+                                        style="background: transparent; border: 1px solid white; color: white; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; font-family: 'Consolas'; font-size: 0.8rem; cursor: pointer; opacity: @(remainingPoints <= 0 ? "0.1" : "1");">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="row g-3" style="margin-bottom: 1.5rem;">
+                    <div class="col-md-6">
+                        <label style="display: block; margin-bottom: 0.25rem; font-size: 0.7rem; color: #888;">ENTITY_NAME</label>
+                        <input @bind="newDemon.Name" style="background: black; color: white; border: 1px solid white; border-radius: 0; width: 100%; padding: 0.375rem 0.75rem; font-family: 'Consolas';" placeholder="e.g. MATADOR" />
+                    </div>
+                    <div class="col-md-3">
+                        <label style="display: block; margin-bottom: 0.25rem; font-size: 0.7rem; color: #888;">RACE</label>
+                        <select @bind="newDemon.Race" style="background: black; color: white; border: 1px solid white; border-radius: 0; width: 100%; padding: 0.375rem 0.75rem; font-family: 'Consolas'; font-size: 0.8rem; appearance: none; -webkit-appearance: none;">
+                            @foreach (var r in Enum.GetValues<Race>())
+                            {
+                                <option value="@r" style="background: black;">@r.ToString().ToUpper().Replace("_", " ")</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label style="display: block; margin-bottom: 0.25rem; font-size: 0.7rem; color: #888;">ALIGNMENT</label>
+                        <select @bind="newDemon.Allignment" style="background: black; color: white; border: 1px solid white; border-radius: 0; width: 100%; padding: 0.375rem 0.75rem; font-family: 'Consolas'; font-size: 0.8rem; appearance: none; -webkit-appearance: none;">
+                        @foreach (var alg in Enum.GetValues<Allignment>())
+                        {
+                            <option value="@alg" style="background: black;">@alg.ToString().Replace("_", " ").ToUpper()</option>
+                        }
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.25rem; font-size: 0.7rem; color: #888;">MYTHOLOGICAL_DESCRIPTION</label>
+                    <textarea @bind="newDemon.Description" style="background: black; color: white; border: 1px solid white; border-radius: 0; width: 100%; padding: 0.375rem 0.75rem; font-family: 'Consolas';" rows="3" placeholder="Entry data..."></textarea>
+                </div>
+
+                <div class="row" style="margin-bottom: 1.5rem;">
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-between mb-1"><span style="font-size: 0.7rem; font-family: 'Consolas';">HP</span><span>@CalculateHP()</span></div>
+                        <div style="height: 12px; background: #111; border: 1px solid #444; padding: 2px;"><div style="width: 100%; height: 100%; background: #e69d4a;"></div></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex justify-content-between mb-1"><span style="font-size: 0.7rem; font-family: 'Consolas';">MP</span><span>@CalculateMP()</span></div>
+                        <div style="height: 12px; background: #111; border: 1px solid #444; padding: 2px;"><div style="width: 100%; height: 100%; background: #431fe7;"></div></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h6 style="border-bottom: 1px solid #333; padding-bottom: 5px; letter-spacing: 1px; font-size: 0.8rem;">MANIFESTED_SKILLS_ALLOCATION</h6>
+                    <div class="row g-2 mt-2">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            var index = i;
+                            <div class="col-md-4">
+                                <select @bind="newDemon.Skills[index]" 
+                                        style="width: 100%; background: #111; color: white; border: none; border-left: 2px solid white; padding: 8px; font-family: 'Consolas'; font-size: 0.8rem; appearance: none; -webkit-appearance: none;">
+                                    <option value="@SkillName.None" style="color: #666;">-------</option>
+                                    @foreach (var s in Enum.GetValues<SkillName>())
+                                    {
+                                        @if (s != SkillName.None)
+                                        {
+                                            <option value="@s" style="background: #000;">@s.ToString().ToUpper().Replace("_", " ")</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <h6 style="border-bottom: 1px solid #333; padding-bottom: 5px; letter-spacing: 1px; font-size: 0.8rem;">ELEMENTAL_AFFINITY_TUNING</h6>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        @foreach (var element in Enum.GetValues<Elements>())
+                        {
+                            @if (element == Elements.Almighty) continue;
+                            <div style="width: 80px; text-align: center; border: 1px solid #333; padding: 5px; background: @GetResColor(newDemon.Resistances[element]);">
+                                <div style="font-size: 0.55rem; color: #888; font-family: 'Consolas';">@element.ToString().Substring(0, 3).ToUpper()</div>
+                                <div class="d-flex align-items-center justify-content-between mt-1">
+                                    <button @onclick="() => AdjustAffinity(element, -1)" disabled="@(newDemon.Resistances[element] <= -1)"
+                                            style="background: transparent; border: none; color: white; cursor: pointer; font-size: 0.7rem; padding: 0 4px; font-weight: bold; opacity: @(newDemon.Resistances[element] <= -1 ? "0.1" : "1");">
+                                        -
+                                    </button>
+                                    <span style="font-weight: bold; font-size: 0.75rem; font-family: 'Consolas';">@GetResLabel(newDemon.Resistances[element])</span>
+                                    <button @onclick="() => AdjustAffinity(element, 1)" disabled="@(affinityPointsPool <= 0 || newDemon.Resistances[element] >= 4)"
+                                            style="background: transparent; border: none; color: white; cursor: pointer; font-size: 0.7rem; padding: 0 4px; font-weight: bold; opacity: @(affinityPointsPool <= 0 || newDemon.Resistances[element] >= 4 ? "0.1" : "1");">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    @{
+                        bool isDisabled = remainingPoints > 0 || affinityPointsPool < 0 || string.IsNullOrEmpty(newDemon.Name);
+                    }
+                    <button @onclick="HandleSave" disabled="@isDisabled" class="btn btn-outline-light px-5 py-2" 
+                            style="font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px; cursor: @(isDisabled ? "not-allowed" : "pointer")">
+                            
+                        @if (string.IsNullOrEmpty(newDemon.Name)) { <span>[ INPUT_NAME_REQUIRED ]</span> }
+                        else if (remainingPoints > 0) { <span>[ ALLOCATE_ALL_STATS: @remainingPoints ]</span> }
+                        else { <span>EXECUTE_SERIALIZATION</span> }
+                    </button>
+                    <button class="btn btn-outline-light px-5 py-2" style="font-family: 'Cinzel'; font-size: 0.8rem; letter-spacing: 2px;" @onclick='() => NavigationManager.NavigateTo("/compendium")'>
+                        RETURN_TO_ARCHIVE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private IBrowserFile? selectedFile;
+    private string previewUrl = "/images/demons/dummy.png";
+    private Demon newDemon = new() { Level = 35 };
+    private int remainingPoints = 35; 
+    private int affinityPointsPool = 100;
+
+    private class StatItem { public string Name = ""; public int CurrentValue; }
+    private List<StatItem> statList = new();
+
+    protected override void OnInitialized()
+    {
+        statList = new List<StatItem> {
+            new() { Name = "Strength", CurrentValue = 5 },
+            new() { Name = "Magic", CurrentValue = 5 },
+            new() { Name = "Vitality", CurrentValue = 5 },
+            new() { Name = "Agility", CurrentValue = 5 },
+            new() { Name = "Luck", CurrentValue = 5 }
+        };
+        
+        foreach (var el in Enum.GetValues<Elements>())
+        {
+            newDemon.Resistances[el] = 0;
+        }
+        
+        UpdatePoints();
+        UpdateAffinityPool();
+    }
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+        var resizedFile = await e.File.RequestImageFileAsync(e.File.ContentType, 400, 600);
+        using var stream = resizedFile.OpenReadStream(2048000);
+        using var memoryStream = new MemoryStream();
+        await stream.CopyToAsync(memoryStream);
+        previewUrl = $"data:{e.File.ContentType};base64,{Convert.ToBase64String(memoryStream.ToArray())}";
+    }
+
+    private int CalculateHP() => (newDemon.Level + statList.First(s => s.Name == "Vitality").CurrentValue) * 6;
+    private int CalculateMP() => (newDemon.Level + statList.First(s => s.Name == "Magic").CurrentValue) * 3;
+
+    private void AdjustStat(StatItem stat, int val) 
+    { 
+        stat.CurrentValue += val; 
+        UpdatePoints(); 
+    }
+
+    private void UpdatePoints() => remainingPoints = 60 - statList.Sum(s => s.CurrentValue);
+
+    private void AdjustAffinity(Elements el, int dir) 
+    { 
+        newDemon.Resistances[el] += dir; 
+        UpdateAffinityPool(); 
+    }
+
+    private void UpdateAffinityPool() 
+    {
+        int spent = 0;
+        foreach (var res in newDemon.Resistances) 
+        {
+            if (res.Key == Elements.Almighty) continue;
+            if (res.Value > 0) spent += res.Value;
+            if (res.Value < 0) spent -= 1; 
+        }
+        affinityPointsPool = 100 - spent;
+    }
+
+    private async Task HandleSave()
+    {
+        if (selectedFile != null)
+            newDemon.ProfileImageUrl = await AdminService.UploadDemonImage(selectedFile, newDemon.Name);
+
+        newDemon.MaxHP = newDemon.HP = CalculateHP();
+        newDemon.MaxMP = newDemon.MP = CalculateMP();
+        
+        newDemon.Strength = statList[0].CurrentValue;
+        newDemon.Magic = statList[1].CurrentValue;
+        newDemon.Vitality = statList[2].CurrentValue;
+        newDemon.Agility = statList[3].CurrentValue;
+        newDemon.Luck = statList[4].CurrentValue;
+
+        await AdminService.SaveToCompendium(newDemon);
+        NavigationManager.NavigateTo("/compendium");
+    }
+
+    private string GetResLabel(int val) => val switch { -1 => "WK", 1 => "STR", 2 => "NUL", 3 => "DR", 4 => "REP", _ => "-" };
+    private string GetResColor(int val) => val switch {
+        -1 => "rgba(255,0,0,0.15)", 2 => "rgba(255,255,255,0.05)", 3 => "rgba(0,255,0,0.1)", 4 => "rgba(255,0,255,0.1)", _ => "transparent"
+    };
+}

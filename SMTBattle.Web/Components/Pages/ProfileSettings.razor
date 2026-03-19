@@ -11,7 +11,7 @@
 @attribute [Authorize]
 @inject UserManager<User> UserManager
 @inject SignInManager<User> SignInManager
-@inject NavigationManager Nav
+@inject NavigationManager NavManager
 @inject AuthenticationStateProvider AuthProvider
 
 <div style="min-height: 100vh; padding-top: 5rem; padding-bottom: 3rem;">
@@ -33,7 +33,7 @@
                         <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
                             Update your digital avatar, display name, and summoner bio.
                         </p>
-                        <button @onclick='() => Nav.NavigateTo("/profile/edit")'
+                        <button @onclick='() => NavManager.NavigateTo("/profile/edit")'
                             style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
                             Modify Profile Data
                         </button>
@@ -46,7 +46,7 @@
                         <p style="color: #ffffff; font-family: 'Crimson Text', serif; font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
                             Manage security protocols, passwords, and account status.
                         </p>
-                        <button @onclick='() => Nav.NavigateTo("/profile/account-settings")'
+                        <button @onclick='() => NavManager.NavigateTo("/profile/account-settings")'
                             style="background-color: transparent; color: #ffffff; font-family: 'Cinzel', serif; border: 1px solid #ffffff; padding: 12px 25px; cursor: pointer; text-transform: uppercase;">
                             Access Security Hub
                         </button>
@@ -71,7 +71,7 @@
                     </div>
 
                     <div style="text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); pt-3">
-                        <button @onclick='() => Nav.NavigateTo("/profile")'
+                        <button @onclick='() => NavManager.NavigateTo("/profile")'
                                 style="background: none; border: none; color: #ffffff; font-family: 'Cinzel', serif; font-size: 0.8rem; cursor: pointer; text-decoration: underline; margin-top: 1.5rem;">
                              Return to Summoner Profile
                         </button>
